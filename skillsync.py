@@ -10,6 +10,7 @@ session = {}
 def login_required(func):
     """Decorstor to enforce login before accessing a command."""
     def wrapper(*args, **kwargs):
+        """Need to find a way to hide you on the CLI."""
         if 'user' not in session:
             click.echo("Error: You must log in to perform this action.")
             return
@@ -51,13 +52,21 @@ def sign_up(email, password):
     """Add new user to application."""
     sign_up()
 
-
+@cli.command()
+@login_required
 def view_workshops():
     """List upcoming workshops and mentors available for booking."""
-    ...
+    click.echo("Lissing upcoming workshops: ")
+    click.echo("1. Workshop A by Mentor X")
+    click.echo("2. Workshop B by Mentor Y")
+
+@cli.command()
+@login_required
+@click.option('--mentor', '-m', prompt='Mentor Name', help='The name of the mentor.')
 def request_meeting():
     """Request a mentor or peer session."""
-    ...
+    click.echo(f"Meeting request sent to mentor: {mentor}")
+
 def view_bookings():
     """Display a list of all confirmed bookings."""
     ...
