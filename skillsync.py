@@ -27,7 +27,22 @@ def cli():
 @click.option('--password', '-p', prompt='Please enter your password', required=True, help='Password of a registered user.')
 def login(email, password):
     """Log in to the application."""
-    sign_in()
+    # sign_in()
+    # Simulate successful login
+    if email == "sakhi@example.com" and password == "kode":
+        session['user'] = email 
+        click.echo("Login successful!")
+    else:
+        click.echo("Invalid email or password. Please try again.")
+
+@cli.command()
+def logout():
+    """Log out of your account."""
+    if 'user' in session:
+        session.pop('user')
+        click.echo("Logged out successfully.")
+    else:
+        click.echo("You are not logged in.")
 
 @cli.command()
 @click.option('--email', '-e', prompt='Please enter your email', required=True, help='New user email.')
