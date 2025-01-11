@@ -33,10 +33,19 @@ def sign_in_with_email_and_password(email:str, password:str)-> Dict[str, Any]:
     response = requests.post(rest_api_url_log, params={"key": FIREBASE_WEB_API_KEY}, data=payload)
     return response.json()
 
-def sign_up()-> None:
-    ...
-def sign_in()-> None:
-    ...
+def sign_up(email, password)-> None:
+    response = sign_up_with_email_and_password(email, password)
+    if "error" in response:
+        print("Sign up failed.")
+    else:
+        print("Sign up successfull. Cool beans!!!")
+
+def sign_in(email, password)-> None:
+    response = sign_in_with_email_and_password(email, password)
+    if "error" in response:
+        print("Log in failed.")
+    else:
+        print("Log in successfull. Yay!!!")
 
 # Example usage
 if __name__ == "__main__":
