@@ -53,7 +53,7 @@ def sign_up(email, password):
     sign_up()
 
 @cli.command()
-@login_required
+# @login_required
 def view_workshops():
     """List upcoming workshops and mentors available for booking."""
     click.echo("Lissing upcoming workshops: ")
@@ -61,9 +61,9 @@ def view_workshops():
     click.echo("2. Workshop B by Mentor Y")
 
 @cli.command()
-@login_required
+# @login_required
 @click.option('--mentor', '-m', prompt='Mentor Name', help='The name of the mentor.')
-def request_meeting():
+def request_meeting(mentor):
     """Request a mentor or peer session."""
     click.echo(f"Meeting request sent to mentor: {mentor}")
 
