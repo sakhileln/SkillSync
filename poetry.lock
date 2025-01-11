@@ -781,6 +781,16 @@ files = [
 ]
 
 [[package]]
+name = "pwinput"
+version = "1.0.3"
+description = "A cross-platform Python module that displays **** for password input. Works on Windows, unlike getpass. Formerly called stdiomask."
+optional = false
+python-versions = "*"
+files = [
+    {file = "pwinput-1.0.3.tar.gz", hash = "sha256:ca1a8bd06e28872d751dbd4132d8637127c25b408ea3a349377314a5491426f3"},
+]
+
+[[package]]
 name = "pyasn1"
 version = "0.6.1"
 description = "Pure-Python implementation of ASN.1 types and DER/BER/CER codecs (X.208)"
@@ -930,4 +940,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "97366b2cfb3f4b8350e3c724bf715a7d07d74b483edcdc47dc61538551bdd3c3"
+content-hash = "6cea795936a52d6a00c40187e43524cf2664642756a774b8241ee2355e89c054"
