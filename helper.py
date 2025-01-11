@@ -1,25 +1,29 @@
 """A module for helper functions."""
 
-import firebase_admin
-from firebase_admin import auth, credentials
+import os
 
-# Initialize Firebase Amdin SDK
-cred = credentials.Certificate("")
-firebase_admin.initialize_app(cred)
+import requests
+import json
 
-def create_user_with_email_and_password(email: str, password: str) -> None:
-    try:
-        # Create a new user with email and password
-        user = auth.create_user(
-            email=email,
-            password=password
-        )
-        print(f"Successfully created new user: {user.uid}")
-    except firebase_admin.auth.AuthError as e:
-        print(f"Error creating user: {e}")
+from dotenv import load_dotenv
 
+load_dotenv()
+
+FIREBASE_WEB_API_KEY = os.getenv("apiKey")
+rest_api_url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp"
+
+def sign_up_with_email_and_password(email, password):
+    payload = json.dumps({
+        "email": email,
+        "password": password,
+        "returnSecureToken": True
+    })
+    response = requests.post(rest_api_url, params={"key": FIREBASE_WEB_API_KEY}, data=payload)
+    return response.json()
+
+# Example usage
 if __name__ == "__main__":
-    # Example usage
-    email = "user@example.com"
-    password = "very_strong_password"
-    create_user_with_email_and_password(email, password)
+    email = input("Enter email: ")
+    password = input("Enter password: ")
+    result = sign_up_with_email_and_password(email, password)
+    print(result)
