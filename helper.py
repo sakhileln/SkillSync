@@ -6,6 +6,7 @@ from typing import Dict, Any
 import requests
 import json
 from pwinput import pwinput
+from termcolor import cprint
 
 from dotenv import load_dotenv
 
@@ -39,18 +40,18 @@ def sign_up()-> None:
     passord = pwinput(prompt="Please enter your password: ")
     response = sign_up_with_email_and_password(email, password)
     if "error" in response:
-        print("Sign up failed.")
+        cprint("Sign up failed.", "red")
     else:
-        print("Sign up successfull. Cool beans!!!")
+        cprint("Sign up successfull. Cool beans!!!", "green")
 
 def sign_in()-> None:
     email = input("Please enter your email: ")
     passord = pwinput(prompt="Please enter your password: ")
     response = sign_in_with_email_and_password(email, password)
     if "error" in response:
-        print("Log in failed.")
+        cprint("Log in failed.", "red")
     else:
-        print("Log in successfull. Yay!!!")
+        cprint("Log in successfull. Yay!!!", "green")
 
 # Example usage
 if __name__ == "__main__":
