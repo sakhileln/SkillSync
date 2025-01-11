@@ -58,5 +58,6 @@ if __name__ == "__main__":
     email = input("Enter email: ")
     password = input("Enter password: ")
     # result = sign_up_with_email_and_password(email, password)
-    result = sign_in_with_email_and_password(email, password)
+    # result = sign_in_with_email_and_password(email, password)
     print(result)
+    sign_up()
