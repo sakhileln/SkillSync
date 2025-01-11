@@ -2,6 +2,21 @@ import click
 
 from helper import sign_in, sign_up
 
+
+# Simulate in-memory session storage
+session = {}
+
+
+def login_required(func):
+    """Decorstor to enforce login before accessing a command."""
+    def wrapper(*args, **kwargs):
+        if 'user' not in session:
+            click.echo("Error: You must log in to perform this action.")
+            return
+        return func(*args, **kwargs)
+    return wrapper
+
+
 @click.group(context_settings={"help_option_names": ["-h", "--help"]})
 def cli():
     """A Python-based Command-Line Interface (CLI) application for managing workshop bookings and one-on-one meetings."""
