@@ -22,5 +22,19 @@ def sign_up(email, password):
     sign_up()
 
 
+def view_workshops():
+    """List upcoming workshops and mentors available for booking."""
+    ...
+def request_meeting():
+    """Request a mentor or peer session."""
+    ...
+def view_bookings():
+    """Display a list of all confirmed bookings."""
+    ...
+def cancel_booking():
+    """Allow users to cancel an existing booking."""
+    ...
+
+
 if __name__ == '__main__':
     cli()
