@@ -12,6 +12,7 @@ firebase-admin = "^6.6.0"
 python-dotenv = "^1.0.1"
 pwinput = "^1.0.3"
 termcolor = "^2.5.0"
+click = "^8.1.8"
 
 
 [build-system]
