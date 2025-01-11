@@ -5,6 +5,7 @@ from typing import Dict, Any
 
 import requests
 import json
+from pwinput import pwinput
 
 from dotenv import load_dotenv
 
@@ -35,7 +36,7 @@ def sign_in_with_email_and_password(email:str, password:str)-> Dict[str, Any]:
 
 def sign_up()-> None:
     email = input("Please enter your email: ")
-    passord = input("Please enter your password: ")
+    passord = pwinput(prompt="Please enter your password: ")
     response = sign_up_with_email_and_password(email, password)
     if "error" in response:
         print("Sign up failed.")
@@ -44,7 +45,7 @@ def sign_up()-> None:
 
 def sign_in()-> None:
     email = input("Please enter your email: ")
-    passord = input("Please enter your password: ")
+    passord = pwinput(prompt="Please enter your password: ")
     response = sign_in_with_email_and_password(email, password)
     if "error" in response:
         print("Log in failed.")
