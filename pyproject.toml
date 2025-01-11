@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "skillsync"
+version = "0.1.0"
+description = "A Python-based Command-Line Interface (CLI) application for managing workshop bookings and one-on-one meetings."
+authors = ["Sakhile L. Ndlazi <sakhilelindah@gmail.com>"]
+license = "GNU GPL v3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+firebase-admin = "^6.6.0"
+python-dotenv = "^1.0.1"
+pwinput = "^1.0.3"
+termcolor = "^2.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
