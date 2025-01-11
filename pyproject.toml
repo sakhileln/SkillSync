@@ -9,6 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.8"
 firebase-admin = "^6.6.0"
+python-dotenv = "^1.0.1"
 
 
 [build-system]
