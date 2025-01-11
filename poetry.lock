@@ -910,6 +910,20 @@ files = [
 pyasn1 = ">=0.1.3"
 
 [[package]]
+name = "termcolor"
+version = "2.5.0"
+description = "ANSI color formatting for output in terminal"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "termcolor-2.5.0-py3-none-any.whl", hash = "sha256:37b17b5fc1e604945c2642c872a3764b5d547a48009871aea3edd3afa180afb8"},
+    {file = "termcolor-2.5.0.tar.gz", hash = "sha256:998d8d27da6d48442e8e1f016119076b690d962507531df4890fcd2db2ef8a6f"},
+]
+
+[package.extras]
+tests = ["pytest", "pytest-cov"]
+
+[[package]]
 name = "uritemplate"
 version = "4.1.1"
 description = "Implementation of RFC 6570 URI Templates"
@@ -940,4 +954,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "e7994c73ece4cc0c585f3cc693c6f4e6a1154c7fcb6e695e3c4b9c606f9a7ecb"
+content-hash = "ef993e49e06938e84409d65dde410a94c29d0ee23ecd625c83196e61ed01ba2c"
