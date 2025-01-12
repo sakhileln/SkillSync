@@ -28,10 +28,20 @@ class User(Base):
 
 class Meeting(Base):
     """Meeting model."""
-    __tablename__ = "meeting"
+    __tablename__ = "meetings"
 
     meeting_id = Column(Integer, primary_key=True)
-    mentor_id = Column(Integer, ForeignKey(users.user_id), nullable=False)
-    mentee_id = Column(Integer, ForeignKey(users.user_id), nullable=False)
+    mentor_id = Column(Integer, ForeignKey("users.user_id"), nullable=False)
+    mentee_id = Column(Integer, ForeignKey("users.user_i"d), nullable=False)
     time = Column(DateTime, default=datatime.datatime.utcnow)
     status = Column(String)
+
+class Workshop(Base):
+    """Workshop model"""
+    __tablename__ = "workshops"
+
+    workshop_id = Column(Integer, primary_key=True)
+    requestor_id = Column(Integer, ForeignKey("users.user_id"), nullable=False)
+    topic = Column(String, nullable=False)
+    date_requested = Column(DateTime, default=datetime.datetime.utcnow)
+
