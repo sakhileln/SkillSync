@@ -33,7 +33,7 @@ class Meeting(Base):
     meeting_id = Column(Integer, primary_key=True)
     mentor_id = Column(Integer, ForeignKey("users.user_id"), nullable=False)
     mentee_id = Column(Integer, ForeignKey("users.user_id"), nullable=False)
-    time = Column(DateTime, default=datatime.datatime.utcnow)
+    time = Column(DateTime, default=datetime.datatime.utcnow)
     status = Column(String)
 
 class Workshop(Base):
