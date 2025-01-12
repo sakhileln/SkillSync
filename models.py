@@ -45,3 +45,11 @@ class Workshop(Base):
     topic = Column(String, nullable=False)
     date_requested = Column(DateTime, default=datetime.datetime.utcnow)
 
+# Function to create the database and tables
+def create_database():
+    engine = create_engine(DATABASE_URL)
+    Base.metadata.create_all(engine)
+
+
+if __name__ == "__main__":
+    create_database()
