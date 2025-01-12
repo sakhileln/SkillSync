@@ -13,6 +13,7 @@ python-dotenv = "^1.0.1"
 pwinput = "^1.0.3"
 termcolor = "^2.5.0"
 click = "^8.1.8"
+sqlalchemy = "^2.0.37"
 
 
 [build-system]
