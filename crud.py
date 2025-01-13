@@ -116,7 +116,7 @@ def delete_workshop(workshop_id):
 if __name__ == "__main__":
     # create_user(1, "Sakhile", "sakhi@example.com", "mentee", "Python")
     print(read_user(1))
-    create_meeting(1, 3, 4, "09:30")
+    # create_meeting(1, 3, 4, "09:30")
     print(read_meeting(1))
-    create_workshop(1, 3, "Python Data Structures")
+    # create_workshop(1, 3, "Python Data Structures")
     print(read_workshop(1))
