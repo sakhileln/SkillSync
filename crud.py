@@ -1,28 +1,38 @@
 import os
 
-import firebase_admin
-from firebase_admin import db, credentials
-
+import pyrebase
 from dotenv import load_dotenv
 
+# Load environment variables from .env file
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL")
+# Firebase configuration
+config = {
+    "apiKey": os.getenv("FIREBASE_API_KEY"),
+    "authDomain": os.getenv("FIREBASE_AUTH_DOMAIN"),
+    "databaseURL": os.getenv("DATABASE_URL"),
+    "storageBucket": os.getenv("FIREBASE_STORAGE_BUCKET"),
+}
 
-cred = credentials.Certificate("credentials.json")
-firebase_admin.initialize_app(cred, {"databaseURL": DATABASE_URL})
+# Initialize Pyrebase
+firebase = pyrebase.initialize_app(config)
 
-# Creating reference to root node
-ref = db.reference("/")
+db = firebase.database()
 
-# Retrieving data from root node
-ref.get()
-db.reference("/name").get()
+# Create a new entry in the root node (example)
+data = {"name": "Ndlazi", "meetings": 3}
+db.child("root").set(data)
 
-# Set operation
-db.reference("/meetings").set(3)
-ref.get()
+# Retrieve data from root node
+root_data = db.child("root").get()
+print(root_data.val())  # Print the retrieved data
 
 # Update operation
-db.reference("/").update({"name": "Ndlazi"})
-ref.get()
+db.child("root").update({"name": "Updated Name"})
+updated_data = db.child("root").get()
+print(updated_data.val())  # Print updated data
+
+# Set operation (overwrites existing data)
+db.child("meetings").set(5)  # Set meetings to 5
+meetings_data = db.child("meetings").get()
+print(meetings_data.val())  # Print meetings data
