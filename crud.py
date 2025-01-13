@@ -84,6 +84,21 @@ def delete_meeting(meeting_id):
     """Delete a meeting by ID"""
     db.child("meetings").child(meeting_id).remove()
 
+def create_workshop(workshop_id, requestor_id, topic):
+    """Create a new workshop."""
+    workshop_data = {
+        'requestor_id': requestor_id,
+        'topic': topic,
+        'date_requested': datetime.datetime.utcnow().isoformat()
+    }
+    db.child("workshops").child(workshop_id).set(workshop_data)
+
+
+def read_workshop(workshop_id):
+    """Read a workshop by ID."""
+    return db.child("workshops").child(workshop_id).get().val()
+
+
 if __name__ == "__main__":
     # create_user(1, "Sakhile", "sakhi@example.com", "mentee", "Python")
     print(read_user(1))
