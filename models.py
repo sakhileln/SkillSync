@@ -1,23 +1,17 @@
 import datetime
 
-from sqlalchemy import (
-    create_engine,
-    Column,
-    Integer,
-    String,
-    ForeignKey,
-    DateTime
-)
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy.orm import declarative_base
 
 # Database URL
 DATABASE_URL = "sqlite:///skillsync.db"
 
-Base = declarative_base() # Base class for declarative models
+Base = declarative_base()  # Base class for declarative models
 
 
 class User(Base):
     """User model."""
+
     __tablename__ = "users"
 
     user_id = Column(Integer, primary_key=True)
@@ -26,8 +20,10 @@ class User(Base):
     role = Column(String, nullable=False)
     expertise = Column(String)
 
+
 class Meeting(Base):
     """Meeting model."""
+
     __tablename__ = "meetings"
 
     meeting_id = Column(Integer, primary_key=True)
@@ -36,14 +32,17 @@ class Meeting(Base):
     time = Column(DateTime, default=datetime.datetime.utcnow)
     status = Column(String)
 
+
 class Workshop(Base):
     """Workshop model"""
+
     __tablename__ = "workshops"
 
     workshop_id = Column(Integer, primary_key=True)
     requestor_id = Column(Integer, ForeignKey("users.user_id"), nullable=False)
     topic = Column(String, nullable=False)
     date_requested = Column(DateTime, default=datetime.datetime.utcnow)
+
 
 # Function to create the database and tables
 def create_database():
