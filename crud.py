@@ -53,6 +53,23 @@ def delete_user(user_id):
     """Delete user by id."""
     db.child("users").child(user_id).remove()
 
+
+def create_meeting(meeting_id, mentor_id, mentee_id, time, status="Scheduled"):
+    """Create a new meeting"""
+    meeting_data = {
+        'mentor_id': mentor_id,
+        'mentee_id': mentee_id,
+        'time': time,
+        'status': status
+    }
+    db.child("meetings").child(meeting_id).set(meeting_data)
+
+
+def read_meeting(meeting_id):
+    """Read a meeting by ID."""
+    return db.child("meetings").child(meeting_id).get().val()
+
+
 if __name__ == "__main__":
     # create_user(1, "Sakhile", "sakhi@example.com", "mentee", "Python")
     print(read_user(1))
