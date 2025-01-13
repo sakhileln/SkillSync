@@ -49,6 +49,10 @@ def update_user(user_id, name=None, email=None, role=None, expertise=None):
     db.child("users").child(user_id).update(updates)
 
 
+def delete_user(user_id):
+    """Delete user by id."""
+    db.child("users").child(user_id).remove()
+
 if __name__ == "__main__":
     # create_user(1, "Sakhile", "sakhi@example.com", "mentee", "Python")
     print(read_user(1))
