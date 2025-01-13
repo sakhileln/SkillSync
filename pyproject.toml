@@ -8,12 +8,15 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-firebase-admin = "^6.6.0"
 python-dotenv = "^1.0.1"
 pwinput = "^1.0.3"
 termcolor = "^2.5.0"
 click = "^8.1.8"
 sqlalchemy = "^2.0.37"
+requests = "2.25.1"
+pyrebase5 = "5.0.1"
+setuptools = "^75.8.0"
+requests-toolbelt = "0.10.1"
 
 
 [build-system]
