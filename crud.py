@@ -70,6 +70,20 @@ def read_meeting(meeting_id):
     return db.child("meetings").child(meeting_id).get().val()
 
 
+def update_meeting(meeting_id, status=None, time=None):
+    """Update a meeting's status or time."""
+    updates = {}
+    if status:
+        updates['status'] = status
+    if time:
+        updates['time'] = time
+    
+    db.child("meetings").child(meeting_id).update(updates)
+
+def delete_meeting(meeting_id):
+    """Delete a meeting by ID"""
+    db.child("meetings").child(meeting_id).remove()
+
 if __name__ == "__main__":
     # create_user(1, "Sakhile", "sakhi@example.com", "mentee", "Python")
     print(read_user(1))
