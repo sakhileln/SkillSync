@@ -99,6 +99,19 @@ def read_workshop(workshop_id):
     return db.child("workshops").child(workshop_id).get().val()
 
 
+def update_workshop(workshop_id, topic=None):
+    """Update a workshop's topic or requestor ID"""
+    updates = {}
+    if topic:
+        updates['topic'] = topic
+    
+    db.child("workshops").child(workshop_id).update(updates)
+
+def delete_workshop(workshop_id):
+    """Delete a workshop by ID."""
+    db.child("workshops").child(workshop_id).remove()
+
+
 if __name__ == "__main__":
     # create_user(1, "Sakhile", "sakhi@example.com", "mentee", "Python")
     print(read_user(1))
