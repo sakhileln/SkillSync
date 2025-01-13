@@ -19,8 +19,8 @@ firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
 
-# Create a new user
 def create_user(user_id, name, email, role, expertise):
+    """Create a new user."""
     user_data = {
         'name': name,
         'email': email,
@@ -29,9 +29,24 @@ def create_user(user_id, name, email, role, expertise):
     }
     db.child("users").child(user_id).set(user_data)
 
-# Read a user by ID
+
 def read_user(user_id):
+    """Read a user by ID"""
     return db.child("users").child(user_id).get().val()
+
+def update_user(user_id, name=None, email=None, role=None, expertise=None):
+    """Update a user's information"""
+    updates = {}
+    if name:
+        updates['name'] = name
+    if email:
+        updates['email'] = email
+    if role:
+        updates['role'] = role
+    if expertise:
+        updates['expertise'] = expertise
+    
+    db.child("users").child(user_id).update(updates)
 
 
 if __name__ == "__main__":
