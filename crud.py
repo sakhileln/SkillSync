@@ -20,14 +20,10 @@ firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
 
+
 def create_user(user_id, name, email, role, expertise):
     """Create a new user."""
-    user_data = {
-        'name': name,
-        'email': email,
-        'role': role,
-        'expertise': expertise
-    }
+    user_data = {"name": name, "email": email, "role": role, "expertise": expertise}
     db.child("users").child(user_id).set(user_data)
 
 
@@ -35,18 +31,19 @@ def read_user(user_id):
     """Read a user by ID"""
     return db.child("users").child(user_id).get().val()
 
+
 def update_user(user_id, name=None, email=None, role=None, expertise=None):
     """Update a user's information"""
     updates = {}
     if name:
-        updates['name'] = name
+        updates["name"] = name
     if email:
-        updates['email'] = email
+        updates["email"] = email
     if role:
-        updates['role'] = role
+        updates["role"] = role
     if expertise:
-        updates['expertise'] = expertise
-    
+        updates["expertise"] = expertise
+
     db.child("users").child(user_id).update(updates)
 
 
@@ -58,10 +55,10 @@ def delete_user(user_id):
 def create_meeting(meeting_id, mentor_id, mentee_id, time, status="Scheduled"):
     """Create a new meeting"""
     meeting_data = {
-        'mentor_id': mentor_id,
-        'mentee_id': mentee_id,
-        'time': time,
-        'status': status
+        "mentor_id": mentor_id,
+        "mentee_id": mentee_id,
+        "time": time,
+        "status": status,
     }
     db.child("meetings").child(meeting_id).set(meeting_data)
 
@@ -75,22 +72,24 @@ def update_meeting(meeting_id, status=None, time=None):
     """Update a meeting's status or time."""
     updates = {}
     if status:
-        updates['status'] = status
+        updates["status"] = status
     if time:
-        updates['time'] = time
-    
+        updates["time"] = time
+
     db.child("meetings").child(meeting_id).update(updates)
+
 
 def delete_meeting(meeting_id):
     """Delete a meeting by ID"""
     db.child("meetings").child(meeting_id).remove()
 
+
 def create_workshop(workshop_id, requestor_id, topic):
     """Create a new workshop."""
     workshop_data = {
-        'requestor_id': requestor_id,
-        'topic': topic,
-        'date_requested': datetime.datetime.utcnow().isoformat()
+        "requestor_id": requestor_id,
+        "topic": topic,
+        "date_requested": datetime.datetime.utcnow().isoformat(),
     }
     db.child("workshops").child(workshop_id).set(workshop_data)
 
@@ -104,9 +103,10 @@ def update_workshop(workshop_id, topic=None):
     """Update a workshop's topic or requestor ID"""
     updates = {}
     if topic:
-        updates['topic'] = topic
-    
+        updates["topic"] = topic
+
     db.child("workshops").child(workshop_id).update(updates)
+
 
 def delete_workshop(workshop_id):
     """Delete a workshop by ID."""
