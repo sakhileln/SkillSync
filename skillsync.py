@@ -1,6 +1,6 @@
 import click
 
-from helper import sign_in, sign_up
+from helper import sign_up
 
 
 # Simulate in-memory session storage
