@@ -77,6 +77,7 @@ def logout():
     required=True,
     help="New user password.",
 )
+# pylint: disable=function-redefined
 def sign_up(email, password):
     """Add new user to application."""
     sign_up()
