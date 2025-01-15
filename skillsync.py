@@ -23,7 +23,7 @@ def login_required(func):
 @click.group(context_settings={"help_option_names": ["-h", "--help"]})
 def cli():
     """A Python-based Command-Line Interface (CLI) application for managing workshop bookings and one-on-one meetings."""
-    pass
+
 
 
 @cli.command()
