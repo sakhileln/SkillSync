@@ -1,6 +1,10 @@
+from collections import OrderedDict
+from datetime import datetime as dt
+
 import click
 
 from helper import sign_up
+from crud import read_workshop
 
 
 # Simulate in-memory session storage
@@ -82,14 +86,17 @@ def sign_up(email, password):
     """Add new user to application."""
     sign_up()
 
-
+"""
+OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
+"""
 @cli.command()
 # @login_required
 def view_workshops():
     """List upcoming workshops and mentors available for booking."""
     click.echo("Lissing upcoming workshops: ")
-    click.echo("1. Workshop A by Mentor X")
-    click.echo("2. Workshop B by Mentor Y")
+    workshops = read_workshop(1)
+    click.echo(print_workshops(workshops))
+
 
 
 @cli.command()
@@ -99,7 +106,7 @@ def request_meeting(mentor):
     """Request a mentor or peer session."""
     click.echo(f"Meeting request sent to mentor: {mentor}")
 
-
+@cli.command()
 def view_bookings():
     """Display a list of all confirmed bookings."""
     ...
@@ -110,5 +117,39 @@ def cancel_booking():
     ...
 
 
+# Helper function
+def print_workshops(workshops: OrderedDict[str, str])-> None:
+    """
+    Print user workshops in a friendly manner.
+
+    params: workshops-> OrderedDict: Workshops for sepcific mentor or mentee.
+
+    Return: None
+    """
+    """
+    date_requested: 2025-01-13T22:22:08.923426
+    requestor_id: 3
+    topic: Python Data Structures
+    """
+    for key, val in workshops.items():
+        if key == "date_requested":
+            date, timez = val.split("T")
+            y, m, d = int(date.split("-")[0]), int(date.split("-")[1]), int(date.split("-")[2])
+            hour, minute, sec = list(map(int, timez[:8].split(":")))
+            date_obj = dt(y, m, d, hour, minute, sec)
+            print("Booking Date: ", end="")
+            print(
+                f"{date_obj.strftime('%A')}, {date_obj.strftime('%d')} {date_obj.strftime('%B')}, {date_obj.strftime('%Y')}"
+            )
+            print(f"Time: {date_obj.strftime('%X')}")
+        elif key == "topic":
+            print(f"Topic: {val}")
+        else:
+            continue
+
 if __name__ == "__main__":
     cli()
+    # od = OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
+    # print_workshops(od)
+    # date, tm = "2025-01-13T22:22:08.923426".split("T")
+    # print(date, tm[:5])
