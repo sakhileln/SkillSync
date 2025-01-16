@@ -1,3 +1,5 @@
+"""Module that defines database models."""
+
 import datetime
 
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, DateTime
@@ -9,6 +11,7 @@ DATABASE_URL = "sqlite:///skillsync.db"
 Base = declarative_base()  # Base class for declarative models
 
 
+# pylint: disable=too-few-public-methods
 class User(Base):
     """User model."""
 
@@ -21,6 +24,7 @@ class User(Base):
     expertise = Column(String)
 
 
+# pylint: disable=too-few-public-methods
 class Meeting(Base):
     """Meeting model."""
 
@@ -33,6 +37,7 @@ class Meeting(Base):
     status = Column(String)
 
 
+# pylint: disable=too-few-public-methods
 class Workshop(Base):
     """Workshop model"""
 
@@ -46,6 +51,7 @@ class Workshop(Base):
 
 # Function to create the database and tables
 def create_database():
+    """Create database and tables from the models."""
     engine = create_engine(DATABASE_URL)
     Base.metadata.create_all(engine)
 

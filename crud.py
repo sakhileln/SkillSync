@@ -1,3 +1,5 @@
+"""Module to handle the CRUD opertations."""
+
 import os
 import datetime
 

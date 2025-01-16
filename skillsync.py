@@ -1,10 +1,9 @@
-from collections import OrderedDict
-from datetime import datetime as dt
+"""MAin driver module for the program."""
 
 import click
 
-from helper import sign_up
 from crud import read_workshop
+from helper import print_workshops
 
 
 # Simulate in-memory session storage
@@ -14,6 +13,7 @@ session = {}
 def login_required(func):
     """Decorstor to enforce login before accessing a command."""
 
+    # pylint: disable=inconsistent-return-statements
     def wrapper(*args, **kwargs):
         """Need to find a way to hide you on the CLI."""
         if "user" not in session:
@@ -26,8 +26,8 @@ def login_required(func):
 
 @click.group(context_settings={"help_option_names": ["-h", "--help"]})
 def cli():
-    """A Python-based Command-Line Interface (CLI) application for managing workshop bookings and one-on-one meetings."""
-
+    """A Python-based Command-Line Interface (CLI) application for managing workshop bookings
+    and one-on-one meetings."""
 
 
 @cli.command()
@@ -81,14 +81,12 @@ def logout():
     required=True,
     help="New user password.",
 )
-# pylint: disable=function-redefined
+# pylint: disable=function-redefined, no-value-for-parameter
 def sign_up(email, password):
     """Add new user to application."""
-    sign_up()
+    print(f"{email}, {password}")
 
-"""
-OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
-"""
+
 @cli.command()
 # @login_required
 def view_workshops():
@@ -98,7 +96,6 @@ def view_workshops():
     click.echo(print_workshops(workshops))
 
 
-
 @cli.command()
 # @login_required
 @click.option("--mentor", "-m", prompt="Mentor Name", help="The name of the mentor.")
@@ -106,50 +103,23 @@ def request_meeting(mentor):
     """Request a mentor or peer session."""
     click.echo(f"Meeting request sent to mentor: {mentor}")
 
+
 @cli.command()
 def view_bookings():
     """Display a list of all confirmed bookings."""
-    ...
 
 
 def cancel_booking():
     """Allow users to cancel an existing booking."""
-    ...
 
-
-# Helper function
-def print_workshops(workshops: OrderedDict[str, str])-> None:
-    """
-    Print user workshops in a friendly manner.
-
-    params: workshops-> OrderedDict: Workshops for sepcific mentor or mentee.
-
-    Return: None
-    """
-    """
-    date_requested: 2025-01-13T22:22:08.923426
-    requestor_id: 3
-    topic: Python Data Structures
-    """
-    for key, val in workshops.items():
-        if key == "date_requested":
-            date, timez = val.split("T")
-            y, m, d = int(date.split("-")[0]), int(date.split("-")[1]), int(date.split("-")[2])
-            hour, minute, sec = list(map(int, timez[:8].split(":")))
-            date_obj = dt(y, m, d, hour, minute, sec)
-            print("Booking Date: ", end="")
-            print(
-                f"{date_obj.strftime('%A')}, {date_obj.strftime('%d')} {date_obj.strftime('%B')}, {date_obj.strftime('%Y')}"
-            )
-            print(f"Time: {date_obj.strftime('%X')}")
-        elif key == "topic":
-            print(f"Topic: {val}")
-        else:
-            continue
 
 if __name__ == "__main__":
     cli()
-    # od = OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
+    # od = OrderedDict([
+    #          ('date_requested', '2025-01-13T22:22:08.923426'),
+    #          ('requestor_id', 3),
+    #          ('topic', 'Python Data Structures')
+    # ])
     # print_workshops(od)
     # date, tm = "2025-01-13T22:22:08.923426".split("T")
     # print(date, tm[:5])

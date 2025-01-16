@@ -24,8 +24,30 @@ Before you begin, ensure you have the following installed on your system:
 - Poetry (for dependency management) or `pip`
 
 ## Installation
+- Copy the project to your computer.
+    ```bash
+    git clone https://github.com/sakhileln/SkillSync
+    ```
+- Change directory to the project folder.
+    ```bash
+    cd SkillSync
+    ```
+- To run the project
+    ```bash
+    python3 skillsync.py
+    ```
+- Follow the command line prompts.
 
 ## Usage
+- Start the program.
+    ```bash
+    python3 skillsync.py
+    ```
+- Get help for how to run the program
+    ```bash
+    python3 skillsync.py -h
+    ```
+- **Follow the command line prompts**
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute. See the [CONTRIBUTING](CONTRIBUTING.md) file for details.
