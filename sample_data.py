@@ -1,3 +1,5 @@
+"""Sample response data from Google Firebase."""
+
 incorrect = {
     "error": {
         "code": 400,
@@ -17,6 +19,7 @@ correct = {
     "localId": "MMASbsdjhAKSJnad7NBD",
     "email": "sakhile@spacex.com",
     "displayName": "",
-    "idToken": "eyJhbGciKAJBDSMDNbsdkjdfhjALDJBHJSdksfJKV1QifQ.esdjhfdfbbvdbpwnBsTwxJXQ-CGPEdSup-XbMqlmcJTLVAJ7_jshfRWCJD6Q",
+    "idToken": 
+    "eyJhbGciKAJBDSMDNbsdkjdfhjALDJBHJSdksfJKV1QifQ.esdjhfdfbbvdbpwnBsTwxJXQ-CGPEdSup-XbMqlmcJTLVAJ7_jshfRWCJD6Q",
     "expiresIn": "3600",
 }
