@@ -1,10 +1,10 @@
 """A module for helper functions."""
 
 import os
+import json
 from typing import Dict, Any
 
 import requests
-import json
 from pwinput import pwinput
 from termcolor import cprint
 
