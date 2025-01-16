@@ -33,7 +33,7 @@ def sign_up_with_email_and_password(email: str, password: str) -> Dict[str, Any]
         {"email": email, "password": password, "returnSecureToken": True}
     )
     response = requests.post(
-        rest_api_url_sign, params={"key": FIREBASE_WEB_API_KEY}, data=payload
+        rest_api_url_sign, params={"key": FIREBASE_WEB_API_KEY}, data=payload, timeout=10
     )
     return response.json()
 
@@ -51,7 +51,7 @@ def sign_in_with_email_and_password(email: str, password: str) -> Dict[str, Any]
         {"email": email, "password": password, "returnSecureToken": True}
     )
     response = requests.post(
-        rest_api_url_log, params={"key": FIREBASE_WEB_API_KEY}, data=payload
+        rest_api_url_log, params={"key": FIREBASE_WEB_API_KEY}, data=payload, timeout=10
     )
     return response.json()
 
