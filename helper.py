@@ -19,6 +19,7 @@ rest_api_url_log = (
     "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword"
 )
 
+
 # pylint: disable=redefined-outer-name
 def sign_up_with_email_and_password(email: str, password: str) -> Dict[str, Any]:
     """
@@ -33,7 +34,10 @@ def sign_up_with_email_and_password(email: str, password: str) -> Dict[str, Any]
         {"email": email, "password": password, "returnSecureToken": True}
     )
     response = requests.post(
-        rest_api_url_sign, params={"key": FIREBASE_WEB_API_KEY}, data=payload, timeout=10
+        rest_api_url_sign,
+        params={"key": FIREBASE_WEB_API_KEY},
+        data=payload,
+        timeout=10,
     )
     return response.json()
 
