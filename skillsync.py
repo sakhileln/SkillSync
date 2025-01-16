@@ -83,10 +83,10 @@ def logout():
     required=True,
     help="New user password.",
 )
-# pylint: disable=function-redefined
+# pylint: disable=function-redefined, no-value-for-parameter
 def sign_up(email, password):
     """Add new user to application."""
-    sign_up()
+    print(f"{email}, {password}")
 
 
 """
