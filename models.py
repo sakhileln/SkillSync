@@ -48,6 +48,7 @@ class Workshop(Base):
 
 # Function to create the database and tables
 def create_database():
+    """Create database and tables from the models."""
     engine = create_engine(DATABASE_URL)
     Base.metadata.create_all(engine)
 
