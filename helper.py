@@ -86,17 +86,6 @@ def sign_in() -> None:
         cprint("Log in successfull. Yay!!!", "green")
 
 
-# Example usage
-if __name__ == "__main__":
-    # pylint: disable=redefined-outer-name
-    email = input("Enter email: ")
-    password = input("Enter password: ")
-    # result = sign_up_with_email_and_password(email, password)
-    # result = sign_in_with_email_and_password(email, password)
-    # print(result)
-    sign_up()
-
-
 # Helper function
 def print_workshops(workshops: OrderedDict[str, str]) -> None:
     """
@@ -132,3 +121,14 @@ def print_workshops(workshops: OrderedDict[str, str]) -> None:
             print(f"Topic: {val}")
         else:
             continue
+
+
+# Example usage
+if __name__ == "__main__":
+    # pylint: disable=redefined-outer-name
+    email = input("Enter email: ")
+    password = input("Enter password: ")
+    # result = sign_up_with_email_and_password(email, password)
+    # result = sign_in_with_email_and_password(email, password)
+    # print(result)
+    sign_up()
