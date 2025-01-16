@@ -28,7 +28,7 @@ def sign_up_with_email_and_password(email: str, password: str) -> Dict[str, Any]
     params: password-> str: Password for the account
 
     Return-> json: JSON information about the request whether successful or not.
-    """ 
+    """
     payload = json.dumps(
         {"email": email, "password": password, "returnSecureToken": True}
     )
@@ -46,7 +46,7 @@ def sign_in_with_email_and_password(email: str, password: str) -> Dict[str, Any]
     params: password-> str: Password for the account
 
     Return-> json: JSON information about the request whether successful or not.
-    """ 
+    """
     payload = json.dumps(
         {"email": email, "password": password, "returnSecureToken": True}
     )
