@@ -10,7 +10,7 @@ DATABASE_URL = "sqlite:///skillsync.db"
 
 Base = declarative_base()  # Base class for declarative models
 
-
+# pylint: disable=too-few-public-methods
 class User(Base):
     """User model."""
 
@@ -22,7 +22,7 @@ class User(Base):
     role = Column(String, nullable=False)
     expertise = Column(String)
 
-
+# pylint: disable=too-few-public-methods
 class Meeting(Base):
     """Meeting model."""
 
@@ -34,7 +34,7 @@ class Meeting(Base):
     time = Column(DateTime, default=datetime.datetime.utcnow)
     status = Column(String)
 
-
+# pylint: disable=too-few-public-methods
 class Workshop(Base):
     """Workshop model"""
 
