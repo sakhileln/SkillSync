@@ -60,7 +60,7 @@ def sign_up() -> None:
     """Function to prompt user for signing up to the application."""
     # pylint: disable=redefined-outer-name
     email = input("Please enter your email: ")
-    passord = pwinput(prompt="Please enter your password: ")
+    password = pwinput(prompt="Please enter your password: ")
     response = sign_up_with_email_and_password(email, password)
     if "error" in response:
         cprint("Sign up failed.", "red")
