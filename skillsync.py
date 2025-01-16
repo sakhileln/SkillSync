@@ -134,12 +134,13 @@ def print_workshops(workshops: OrderedDict[str, str])-> None:
         if key == "date_requested":
             date, timez = val.split("T")
             y, m, d = int(date.split("-")[0]), int(date.split("-")[1]), int(date.split("-")[2])
-            date_obj = dt(y, m, d)
-            print("Booking Details:")
-            print(f"{date_obj.strftime('%A')}, {date_obj.strftime('%d')}, {date_obj.strftime('%B')}, {date_obj.strftime('%Y')}")
-
-
-            print(f"Time: {timez[:5]}\nBooking Date: {date}")
+            hour, minute = list(map(int, timez[:5].split(":")))
+            date_obj = dt(y, m, d, hour, minute)
+            print("Booking Date: ", end="")
+            print(
+                f"{date_obj.strftime('%A')}, {date_obj.strftime('%d')}, {date_obj.strftime('%B')}, {date_obj.strftime('%Y')}"
+            )
+            print(f"Time: {date_obj.strftime('%X')}")
         elif key == "topic":
             print(f"Topic: {val}")
         # print(f"{key}: {val}")
