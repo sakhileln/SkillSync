@@ -93,3 +93,40 @@ if __name__ == "__main__":
     # result = sign_in_with_email_and_password(email, password)
     # print(result)
     sign_up()
+
+
+# Helper function
+def print_workshops(workshops: OrderedDict[str, str]) -> None:
+    """
+    Print user workshops in a friendly manner.
+
+    params: workshops-> OrderedDict: Workshops for sepcific mentor or mentee.
+
+    Return: None
+    """
+    # pylint: disable=pointless-string-statement
+    """
+    date_requested: 2025-01-13T22:22:08.923426
+    requestor_id: 3
+    topic: Python Data Structures
+    """
+    for key, val in workshops.items():
+        if key == "date_requested":
+            date, timez = val.split("T")
+            y, m, d = (
+                int(date.split("-")[0]),
+                int(date.split("-")[1]),
+                int(date.split("-")[2]),
+            )
+            hour, minute, sec = list(map(int, timez[:8].split(":")))
+            date_obj = dt(y, m, d, hour, minute, sec)
+            print("Booking Date: ", end="")
+            # pylint: disable=line-too-long
+            print(
+                f"{date_obj.strftime('%A')}, {date_obj.strftime('%d')} {date_obj.strftime('%B')}, {date_obj.strftime('%Y')}"
+            )
+            print(f"Time: {date_obj.strftime('%X')}")
+        elif key == "topic":
+            print(f"Topic: {val}")
+        else:
+            continue
