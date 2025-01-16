@@ -89,11 +89,6 @@ def sign_up(email, password):
     print(f"{email}, {password}")
 
 
-"""
-OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
-"""
-
-
 @cli.command()
 # @login_required
 def view_workshops():
@@ -114,12 +109,12 @@ def request_meeting(mentor):
 @cli.command()
 def view_bookings():
     """Display a list of all confirmed bookings."""
-    ...
+    
 
 
 def cancel_booking():
     """Allow users to cancel an existing booking."""
-    ...
+    
 
 
 # Helper function
