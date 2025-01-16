@@ -5,7 +5,6 @@ from datetime import datetime as dt
 
 import click
 
-from helper import sign_up
 from crud import read_workshop
 
 
@@ -15,6 +14,7 @@ session = {}
 
 def login_required(func):
     """Decorstor to enforce login before accessing a command."""
+
     # pylint: disable=inconsistent-return-statements
     def wrapper(*args, **kwargs):
         """Need to find a way to hide you on the CLI."""
@@ -109,12 +109,10 @@ def request_meeting(mentor):
 @cli.command()
 def view_bookings():
     """Display a list of all confirmed bookings."""
-    
 
 
 def cancel_booking():
     """Allow users to cancel an existing booking."""
-    
 
 
 # Helper function
@@ -126,6 +124,7 @@ def print_workshops(workshops: OrderedDict[str, str]) -> None:
 
     Return: None
     """
+    # pylint: disable=pointless-string-statement
     """
     date_requested: 2025-01-13T22:22:08.923426
     requestor_id: 3
