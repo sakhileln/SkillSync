@@ -94,8 +94,9 @@ OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 
 def view_workshops():
     """List upcoming workshops and mentors available for booking."""
     click.echo("Lissing upcoming workshops: ")
-    click.echo("1. Workshop A by Mentor X")
-    click.echo("2. Workshop B by Mentor Y")
+    workshops = read_workshop(1)
+    click.echo(print_workshops(workshops))
+
 
 
 @cli.command()
@@ -134,22 +135,21 @@ def print_workshops(workshops: OrderedDict[str, str])-> None:
         if key == "date_requested":
             date, timez = val.split("T")
             y, m, d = int(date.split("-")[0]), int(date.split("-")[1]), int(date.split("-")[2])
-            hour, minute = list(map(int, timez[:5].split(":")))
-            date_obj = dt(y, m, d, hour, minute)
+            hour, minute, sec = list(map(int, timez[:8].split(":")))
+            date_obj = dt(y, m, d, hour, minute, sec)
             print("Booking Date: ", end="")
             print(
-                f"{date_obj.strftime('%A')}, {date_obj.strftime('%d')}, {date_obj.strftime('%B')}, {date_obj.strftime('%Y')}"
+                f"{date_obj.strftime('%A')}, {date_obj.strftime('%d')} {date_obj.strftime('%B')}, {date_obj.strftime('%Y')}"
             )
             print(f"Time: {date_obj.strftime('%X')}")
         elif key == "topic":
             print(f"Topic: {val}")
-        # print(f"{key}: {val}")
         else:
             continue
 
 if __name__ == "__main__":
-    # cli()
-    od = OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
-    print_workshops(od)
+    cli()
+    # od = OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
+    # print_workshops(od)
     # date, tm = "2025-01-13T22:22:08.923426".split("T")
     # print(date, tm[:5])
