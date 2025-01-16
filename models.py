@@ -1,3 +1,5 @@
+"""Module that defines database models."""
+
 import datetime
 
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, DateTime
