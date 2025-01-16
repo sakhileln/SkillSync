@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 FIREBASE_WEB_API_KEY = os.getenv("FIREBASE_API_KEY")
+# pylint: disable=invalid-name
 rest_api_url_sign = "https://identitytoolkit.googleapis.com/v1/accounts:signUp"
 rest_api_url_log = (
     "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword"
