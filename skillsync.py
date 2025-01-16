@@ -1,11 +1,9 @@
 """MAin driver module for the program."""
 
-from collections import OrderedDict
-from datetime import datetime as dt
-
 import click
 
 from crud import read_workshop
+from helper import print_workshops
 
 
 # Simulate in-memory session storage
