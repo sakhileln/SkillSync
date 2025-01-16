@@ -29,7 +29,6 @@ def cli():
     """A Python-based Command-Line Interface (CLI) application for managing workshop bookings and one-on-one meetings."""
 
 
-
 @cli.command()
 @click.option(
     "--email",
@@ -86,9 +85,12 @@ def sign_up(email, password):
     """Add new user to application."""
     sign_up()
 
+
 """
 OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
 """
+
+
 @cli.command()
 # @login_required
 def view_workshops():
@@ -98,13 +100,13 @@ def view_workshops():
     click.echo(print_workshops(workshops))
 
 
-
 @cli.command()
 # @login_required
 @click.option("--mentor", "-m", prompt="Mentor Name", help="The name of the mentor.")
 def request_meeting(mentor):
     """Request a mentor or peer session."""
     click.echo(f"Meeting request sent to mentor: {mentor}")
+
 
 @cli.command()
 def view_bookings():
@@ -118,7 +120,7 @@ def cancel_booking():
 
 
 # Helper function
-def print_workshops(workshops: OrderedDict[str, str])-> None:
+def print_workshops(workshops: OrderedDict[str, str]) -> None:
     """
     Print user workshops in a friendly manner.
 
@@ -134,7 +136,11 @@ def print_workshops(workshops: OrderedDict[str, str])-> None:
     for key, val in workshops.items():
         if key == "date_requested":
             date, timez = val.split("T")
-            y, m, d = int(date.split("-")[0]), int(date.split("-")[1]), int(date.split("-")[2])
+            y, m, d = (
+                int(date.split("-")[0]),
+                int(date.split("-")[1]),
+                int(date.split("-")[2]),
+            )
             hour, minute, sec = list(map(int, timez[:8].split(":")))
             date_obj = dt(y, m, d, hour, minute, sec)
             print("Booking Date: ", end="")
@@ -146,6 +152,7 @@ def print_workshops(workshops: OrderedDict[str, str])-> None:
             print(f"Topic: {val}")
         else:
             continue
+
 
 if __name__ == "__main__":
     cli()
