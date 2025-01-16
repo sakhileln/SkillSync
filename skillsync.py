@@ -1,6 +1,9 @@
+from collections import OrderedDict
+
 import click
 
 from helper import sign_up
+from crud import read_workshop
 
 
 # Simulate in-memory session storage
@@ -82,7 +85,9 @@ def sign_up(email, password):
     """Add new user to application."""
     sign_up()
 
-
+"""
+OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
+"""
 @cli.command()
 # @login_required
 def view_workshops():
@@ -99,7 +104,7 @@ def request_meeting(mentor):
     """Request a mentor or peer session."""
     click.echo(f"Meeting request sent to mentor: {mentor}")
 
-
+@cli.command()
 def view_bookings():
     """Display a list of all confirmed bookings."""
     ...
@@ -110,5 +115,26 @@ def cancel_booking():
     ...
 
 
+# Helper function
+def print_workshops(workshops: OrderedDict[str, str])-> None:
+    """
+    Print user workshops in a friendly manner.
+
+    params: workshops-> OrderedDict: Workshops for sepcific mentor or mentee.
+
+    Return: None
+    """
+    """
+    date_requested: 2025-01-13T22:22:08.923426
+    requestor_id: 3
+    topic: Python Data Structures
+    """
+    for key, val in workshops.items():
+        if key == "date_requested":
+            print(f"Booking Date: {}")
+        print(f"{key}: {val}")
+
 if __name__ == "__main__":
-    cli()
+    # cli()
+    od = OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
+    print_workshops(od)
