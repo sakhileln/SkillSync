@@ -21,6 +21,14 @@ rest_api_url_log = (
 
 
 def sign_up_with_email_and_password(email: str, password: str) -> Dict[str, Any]:
+    """
+    Handle user sign up using email and password using Firebase Authentication.
+
+    params: email-> str: Email for the user
+    params: password-> str: Password for the account
+
+    Return-> json: JSON information about the request whether successful or not.
+    """ 
     payload = json.dumps(
         {"email": email, "password": password, "returnSecureToken": True}
     )
@@ -31,6 +39,14 @@ def sign_up_with_email_and_password(email: str, password: str) -> Dict[str, Any]
 
 
 def sign_in_with_email_and_password(email: str, password: str) -> Dict[str, Any]:
+    """
+    Handle user sign in using email and password using Firebase Authentication.
+
+    params: email-> str: Email for the user
+    params: password-> str: Password for the account
+
+    Return-> json: JSON information about the request whether successful or not.
+    """ 
     payload = json.dumps(
         {"email": email, "password": password, "returnSecureToken": True}
     )
@@ -41,6 +57,7 @@ def sign_in_with_email_and_password(email: str, password: str) -> Dict[str, Any]
 
 
 def sign_up() -> None:
+    """Function to prompt user for signing up to the application."""
     email = input("Please enter your email: ")
     passord = pwinput(prompt="Please enter your password: ")
     response = sign_up_with_email_and_password(email, password)
@@ -51,6 +68,7 @@ def sign_up() -> None:
 
 
 def sign_in() -> None:
+    """Function to handle signing into the application."""
     email = input("Please enter your email: ")
     passord = pwinput(prompt="Please enter your password: ")
     response = sign_in_with_email_and_password(email, password)
