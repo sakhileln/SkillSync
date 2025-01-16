@@ -1,3 +1,5 @@
+"""MAin driver module for the program."""
+
 from collections import OrderedDict
 from datetime import datetime as dt
 
@@ -26,7 +28,8 @@ def login_required(func):
 
 @click.group(context_settings={"help_option_names": ["-h", "--help"]})
 def cli():
-    """A Python-based Command-Line Interface (CLI) application for managing workshop bookings and one-on-one meetings."""
+    """A Python-based Command-Line Interface (CLI) application for managing workshop bookings
+    and one-on-one meetings."""
 
 
 @cli.command()
@@ -144,6 +147,7 @@ def print_workshops(workshops: OrderedDict[str, str]) -> None:
             hour, minute, sec = list(map(int, timez[:8].split(":")))
             date_obj = dt(y, m, d, hour, minute, sec)
             print("Booking Date: ", end="")
+            # pylint: disable=line-too-long
             print(
                 f"{date_obj.strftime('%A')}, {date_obj.strftime('%d')} {date_obj.strftime('%B')}, {date_obj.strftime('%Y')}"
             )
@@ -156,7 +160,11 @@ def print_workshops(workshops: OrderedDict[str, str]) -> None:
 
 if __name__ == "__main__":
     cli()
-    # od = OrderedDict([('date_requested', '2025-01-13T22:22:08.923426'), ('requestor_id', 3), ('topic', 'Python Data Structures')])
+    # od = OrderedDict([
+    #          ('date_requested', '2025-01-13T22:22:08.923426'),
+    #          ('requestor_id', 3),
+    #          ('topic', 'Python Data Structures')
+    # ])
     # print_workshops(od)
     # date, tm = "2025-01-13T22:22:08.923426".split("T")
     # print(date, tm[:5])
