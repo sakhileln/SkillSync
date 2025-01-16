@@ -15,7 +15,7 @@ session = {}
 
 def login_required(func):
     """Decorstor to enforce login before accessing a command."""
-
+    # pylint: disable=inconsistent-return-statements
     def wrapper(*args, **kwargs):
         """Need to find a way to hide you on the CLI."""
         if "user" not in session:
