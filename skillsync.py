@@ -115,7 +115,6 @@ def cancel_booking():
     """Allow users to cancel an existing booking."""
 
 
-
 if __name__ == "__main__":
     cli()
     # od = OrderedDict([
