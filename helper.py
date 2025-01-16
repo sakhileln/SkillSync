@@ -70,7 +70,7 @@ def sign_up() -> None:
 def sign_in() -> None:
     """Function to handle signing into the application."""
     email = input("Please enter your email: ")
-    passord = pwinput(prompt="Please enter your password: ")
+    password = pwinput(prompt="Please enter your password: ")
     response = sign_in_with_email_and_password(email, password)
     if "error" in response:
         cprint("Log in failed.", "red")
