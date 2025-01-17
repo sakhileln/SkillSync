@@ -123,6 +123,7 @@ def request_meeting(mentor, time):
     # create_meeting(2, 1, 4, "10:15")
     cprint(f"Meeting request sent to mentor: {mentor} for {time}", "green")
     # Take mentor name, read user database, get user id for the mentor
+    """"""
     # Get current user id from the database.
     # User the time to create the meeting on the database
 
