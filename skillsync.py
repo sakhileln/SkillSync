@@ -67,14 +67,7 @@ def login(email, password):
         cprint("Log in successful. Yay!!!", "green")
 
 
-@cli.command()
-def logout():
-    """Log out of your account."""
-    if "user" in session:
-        session.pop("user")
-        click.echo("Logged out successfully.")
-    else:
-        click.echo("You are not logged in.")
+
 
 
 @cli.command()
@@ -133,7 +126,12 @@ def request_meeting(mentor, time):
     """Request a mentor or peer session."""
     # create_meeting(2, 1, 4, "10:15")
     cprint(f"Meeting request sent to mentor: {mentor} for {time}", "green")
+    # Take mentor name, read user database, get user id for the mentor
+    # Get current user id from the database.
+    # User the time to create the meeting on the database
+
     #click.echo(f"Meeting request sent to mentor: {mentor} at {time}")
+
 
 
 @cli.command()
@@ -144,6 +142,15 @@ def view_bookings():
 def cancel_booking():
     """Allow users to cancel an existing booking."""
 
+
+@cli.command()
+def logout():
+    """Log out of your account."""
+    if "user" in session:
+        session.pop("user")
+        click.echo("Logged out successfully.")
+    else:
+        click.echo("You are not logged in.")
 
 if __name__ == "__main__":
     cli()
