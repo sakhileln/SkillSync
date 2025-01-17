@@ -121,6 +121,7 @@ def view_workshops():
 def request_meeting(mentor, time):
     """Request a mentor or peer session."""
     # create_meeting(2, 1, 4, "10:15")
+    # May have to create meeting using emails as IDs
 
     # Take mentor name, read user database, get user id for the mentor
     """"""
