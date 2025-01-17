@@ -7,7 +7,7 @@ from crud import read_workshop
 from helper import (
     print_workshops,
     sign_in_with_email_and_password,
-    sign_up_with_email_and_password
+    sign_up_with_email_and_password,
 )
 
 
@@ -65,7 +65,6 @@ def login(email, password):
         cprint("Log in failed.", "red")
     else:
         cprint("Log in successful. Yay!!!", "green")
-
 
 
 @cli.command()
