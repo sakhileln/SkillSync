@@ -3,7 +3,7 @@
 import click
 from termcolor import cprint
 
-from crud import read_workshop
+from crud import read_workshop, create_meeting
 from helper import (
     print_workshops,
     sign_in_with_email_and_password,
@@ -112,12 +112,28 @@ def view_workshops():
     click.echo(print_workshops(workshops))
 
 
-@cli.command()
+
 # @login_required
-@click.option("--mentor", "-m", prompt="Mentor Name", help="The name of the mentor.")
-def request_meeting(mentor):
+@cli.command()
+@click.option(
+    "--mentor",
+    "-m",
+    prompt="Mentor Name",
+    required=True,
+    help="The name of the mentor.",
+)
+@click.option(
+    "--time",
+    "-m",
+    prompt="Time",
+    required=True,
+    help="Time of the meeting.",
+)
+def request_meeting(mentor, time):
     """Request a mentor or peer session."""
-    click.echo(f"Meeting request sent to mentor: {mentor}")
+    # create_meeting(2, 1, 4, "10:15")
+    cprint(f"Meeting request sent to mentor: {mentor} for {time}", "green")
+    #click.echo(f"Meeting request sent to mentor: {mentor} at {time}")
 
 
 @cli.command()
