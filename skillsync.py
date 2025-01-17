@@ -3,7 +3,11 @@
 import click
 from termcolor import cprint
 
-from crud import read_workshop, create_meeting
+from crud import (
+    read_workshop,
+    create_meeting,
+    find_user
+)
 from helper import (
     print_workshops,
     sign_in_with_email_and_password,
@@ -121,12 +125,16 @@ def view_workshops():
 def request_meeting(mentor, time):
     """Request a mentor or peer session."""
     # create_meeting(2, 1, 4, "10:15")
-    cprint(f"Meeting request sent to mentor: {mentor} for {time}", "green")
+    
     # Take mentor name, read user database, get user id for the mentor
     """"""
-    # Get current user id from the database.
-    # User the time to create the meeting on the database
-
+    user_email = find_user(mentor)
+    if user_email is None:
+        cprint("Could not find mentor or mentee. Please try again.", "red")
+    else:
+        ...
+        # User the email and time to create the meeting on the database
+    cprint(f"Meeting request sent to mentor: {mentor} for {time}", "green")
     # click.echo(f"Meeting request sent to mentor: {mentor} at {time}")
 
 
