@@ -33,6 +33,7 @@ def read_user(user_id):
     """Read a user by ID"""
     return db.child("users").child(user_id).get().val()
 
+
 def read_users():
     """Read a users from database."""
     return db.child("users").get().val()
