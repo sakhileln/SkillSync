@@ -38,6 +38,20 @@ def read_users():
     """Read a users from database."""
     return db.child("users").get().val()
 
+def find_user(username):
+    """Find a user by email and return their ID."""
+    users = read_users()
+    
+    for item in users:
+        if not isinstance(item, dict):
+            continue
+        else:
+            for user_id, user_info in item.items():
+                if user_info == username:
+                    return item["email"]  # Return the user's ID if found
+    return None  # Return None if no matching user is found
+
+
 
 def update_user(user_id, name=None, email=None, role=None, expertise=None):
     """Update a user's information"""
@@ -127,4 +141,14 @@ if __name__ == "__main__":
     # print(read_meeting(1))
     # create_workshop(1, 3, "Python Data Structures")
     # print(read_workshop(1))
-    print(read_users())
+    # print(read_users())
+
+    # Example usage
+    user_email_to_search = "Kyle"
+    user_id = find_user(user_email_to_search)
+
+    if user_id:
+        print(f"User ID for {user_email_to_search}: {user_id}")
+    else:
+        print(f"No user found with email: {user_email_to_search}")
+
