@@ -33,6 +33,10 @@ def read_user(user_id):
     """Read a user by ID"""
     return db.child("users").child(user_id).get().val()
 
+def read_users():
+    """Read a users from database."""
+    return db.child("users").get().val()
+
 
 def update_user(user_id, name=None, email=None, role=None, expertise=None):
     """Update a user's information"""
@@ -116,9 +120,10 @@ def delete_workshop(workshop_id):
 
 
 if __name__ == "__main__":
-    # create_user(1, "Sakhile", "sakhi@example.com", "mentee", "Python")
+    # create_user(2, "Kyle", "kyle@dsquad.co.za", "mentor", "Python")
     # print(read_user(1))
     # create_meeting(1, 3, 4, "09:30")
     # print(read_meeting(1))
     # create_workshop(1, 3, "Python Data Structures")
-    print(read_workshop(1))
+    # print(read_workshop(1))
+    print(read_users())
