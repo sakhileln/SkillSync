@@ -67,9 +67,6 @@ def login(email, password):
         cprint("Log in successful. Yay!!!", "green")
 
 
-
-
-
 @cli.command()
 @click.option(
     "--email",
@@ -105,7 +102,6 @@ def view_workshops():
     click.echo(print_workshops(workshops))
 
 
-
 # @login_required
 @cli.command()
 @click.option(
@@ -130,8 +126,7 @@ def request_meeting(mentor, time):
     # Get current user id from the database.
     # User the time to create the meeting on the database
 
-    #click.echo(f"Meeting request sent to mentor: {mentor} at {time}")
-
+    # click.echo(f"Meeting request sent to mentor: {mentor} at {time}")
 
 
 @cli.command()
@@ -151,6 +146,7 @@ def logout():
         click.echo("Logged out successfully.")
     else:
         click.echo("You are not logged in.")
+
 
 if __name__ == "__main__":
     cli()
