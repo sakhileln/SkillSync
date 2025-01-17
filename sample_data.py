@@ -23,3 +23,20 @@ correct = {
     "idToken": "eyJhbGciKAJBDSMDNbsdkjdfhjALDJBHJSdksfJKV1QifQ.esdjhfdfbbvdbpwnBsTwxJXQ-CGPEdSup-XbMqlmcJTLVAJ7_jshfRWCJD6Q",
     "expiresIn": "3600",
 }
+
+
+users = [
+    None,
+    {
+        "email": "sakhi@example.com",
+        "expertise": "Python",
+        "name": "Sakhile",
+        "role": "mentee",
+    },
+    {
+        "email": "kyle@dsquad.co.za",
+        "expertise": "Python",
+        "name": "Kyle",
+        "role": "mentor",
+    },
+]
