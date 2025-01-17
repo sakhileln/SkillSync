@@ -3,11 +3,7 @@
 import click
 from termcolor import cprint
 
-from crud import (
-    read_workshop,
-    create_meeting,
-    find_user
-)
+from crud import read_workshop, create_meeting, find_user
 from helper import (
     print_workshops,
     sign_in_with_email_and_password,
@@ -125,7 +121,7 @@ def view_workshops():
 def request_meeting(mentor, time):
     """Request a mentor or peer session."""
     # create_meeting(2, 1, 4, "10:15")
-    
+
     # Take mentor name, read user database, get user id for the mentor
     """"""
     user_email = find_user(mentor)
