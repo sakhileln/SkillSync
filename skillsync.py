@@ -1,9 +1,14 @@
 """MAin driver module for the program."""
 
 import click
+from termcolor import cprint
 
 from crud import read_workshop
-from helper import print_workshops
+from helper import (
+    print_workshops,
+    sign_in_with_email_and_password,
+    sign_up_with_email_and_password
+)
 
 
 # Simulate in-memory session storage
@@ -49,11 +54,18 @@ def login(email, password):
     """Log in to the application."""
     # sign_in()
     # Simulate successful login
-    if email == "sakhi@example.com" and password == "kode":
-        session["user"] = email
-        click.echo("Login successful!")
+    # if email == "sakhi@example.com" and password == "kode":
+    #     session["user"] = email
+    #     click.echo("Login successful!")
+    # else:
+    #     click.echo("Invalid email or password. Please try again.")
+
+    response = sign_in_with_email_and_password(email, password)
+    if "error" in response:
+        cprint("Log in failed.", "red")
     else:
-        click.echo("Invalid email or password. Please try again.")
+        cprint("Log in successful. Yay!!!", "green")
+
 
 
 @cli.command()
@@ -84,6 +96,11 @@ def logout():
 # pylint: disable=function-redefined, no-value-for-parameter
 def sign_up(email, password):
     """Add new user to application."""
+    response = sign_up_with_email_and_password(email, password)
+    if "error" in response:
+        cprint("Sign up failed.", "red")
+    else:
+        cprint("Sign up successful. Cool beans!!!", "green")
     print(f"{email}, {password}")
 
 
