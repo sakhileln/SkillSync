@@ -3,7 +3,7 @@
 import click
 from termcolor import cprint
 
-from crud import read_workshop, create_meeting, find_user
+from crud import read_workshop, find_user
 from helper import (
     print_workshops,
     sign_in_with_email_and_password,
