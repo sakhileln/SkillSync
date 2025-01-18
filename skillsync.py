@@ -124,7 +124,6 @@ def request_meeting(mentor, time):
     # May have to create meeting using emails as IDs
 
     # Take mentor name, read user database, get user id for the mentor
-    """"""
     user_email = find_user(mentor)
     if user_email is None:
         cprint("Could not find mentor or mentee. Please try again.", "red")
