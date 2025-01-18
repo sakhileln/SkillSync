@@ -1,8 +1,11 @@
 import os
 import pickle
+
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+from termcolor import cprint
+
 
 # Scopes for Google Calendar API
 SCOPES = ['https://www.googleapis.com/auth/calendar']
@@ -56,7 +59,7 @@ def create_event(email):
 
     # Insert the event
     event = service.events().insert(calendarId='primary', body=event, sendUpdates='all').execute()
-    print(f"Event created successfully! View it here: {event.get('htmlLink')}")
+    cprint(f"Event created successfully! View it here: {event.get('htmlLink')}", "green")
 
 
 
