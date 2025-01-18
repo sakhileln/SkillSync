@@ -142,7 +142,7 @@ if __name__ == "__main__":
     # create_workshop(1, 3, "Python Data Structures")
     # print(read_workshop(1))
     # print(read_users())
-
+    # pylint: disable=invalid-name
     user_email_to_search = "Kyle"
     user_id = find_user(user_email_to_search)
 
