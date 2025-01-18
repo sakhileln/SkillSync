@@ -3,7 +3,7 @@
 import click
 from termcolor import cprint
 
-from crud import read_workshop
+from crud import read_workshop, find_user
 from helper import (
     print_workshops,
     sign_in_with_email_and_password,
@@ -68,16 +68,6 @@ def login(email, password):
 
 
 @cli.command()
-def logout():
-    """Log out of your account."""
-    if "user" in session:
-        session.pop("user")
-        click.echo("Logged out successfully.")
-    else:
-        click.echo("You are not logged in.")
-
-
-@cli.command()
 @click.option(
     "--email",
     "-e",
@@ -112,12 +102,36 @@ def view_workshops():
     click.echo(print_workshops(workshops))
 
 
-@cli.command()
 # @login_required
-@click.option("--mentor", "-m", prompt="Mentor Name", help="The name of the mentor.")
-def request_meeting(mentor):
+@cli.command()
+@click.option(
+    "--mentor",
+    "-m",
+    prompt="Mentor Name",
+    required=True,
+    help="The name of the mentor.",
+)
+@click.option(
+    "--time",
+    "-m",
+    prompt="Time",
+    required=True,
+    help="Time of the meeting.",
+)
+def request_meeting(mentor, time):
     """Request a mentor or peer session."""
-    click.echo(f"Meeting request sent to mentor: {mentor}")
+    # create_meeting(2, 1, 4, "10:15")
+    # May have to create meeting using emails as IDs
+
+    # Take mentor name, read user database, get user id for the mentor
+    user_email = find_user(mentor)
+    if user_email is None:
+        cprint("Could not find mentor or mentee. Please try again.", "red")
+    else:
+        ...
+        # User the email and time to create the meeting on the database
+    cprint(f"Meeting request sent to mentor: {mentor} for {time}", "green")
+    # click.echo(f"Meeting request sent to mentor: {mentor} at {time}")
 
 
 @cli.command()
@@ -127,6 +141,16 @@ def view_bookings():
 
 def cancel_booking():
     """Allow users to cancel an existing booking."""
+
+
+@cli.command()
+def logout():
+    """Log out of your account."""
+    if "user" in session:
+        session.pop("user")
+        click.echo("Logged out successfully.")
+    else:
+        click.echo("You are not logged in.")
 
 
 if __name__ == "__main__":

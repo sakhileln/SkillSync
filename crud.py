@@ -23,17 +23,39 @@ firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
 
+# pylint: disable=redefined-outer-name
 def create_user(user_id, name, email, role, expertise):
     """Create a new user."""
     user_data = {"name": name, "email": email, "role": role, "expertise": expertise}
     db.child("users").child(user_id).set(user_data)
 
 
+# pylint: disable=redefined-outer-name
 def read_user(user_id):
     """Read a user by ID"""
     return db.child("users").child(user_id).get().val()
 
 
+def read_users():
+    """Read a users from database."""
+    return db.child("users").get().val()
+
+
+def find_user(username):
+    """Find a user by email and return their ID."""
+    users = read_users()
+
+    for item in users:
+        if not isinstance(item, dict):
+            continue
+        # pylint: disable=unused-variable
+        for user_id, user_info in item.items():
+            if user_info == username:
+                return item["email"]  # Return the user's ID if found
+    return None  # Return None if no matching user is found
+
+
+# pylint: disable=redefined-outer-name
 def update_user(user_id, name=None, email=None, role=None, expertise=None):
     """Update a user's information"""
     updates = {}
@@ -49,6 +71,7 @@ def update_user(user_id, name=None, email=None, role=None, expertise=None):
     db.child("users").child(user_id).update(updates)
 
 
+# pylint: disable=redefined-outer-name
 def delete_user(user_id):
     """Delete user by id."""
     db.child("users").child(user_id).remove()
@@ -116,9 +139,18 @@ def delete_workshop(workshop_id):
 
 
 if __name__ == "__main__":
-    # create_user(1, "Sakhile", "sakhi@example.com", "mentee", "Python")
+    # create_user(2, "Kyle", "kyle@dsquad.co.za", "mentor", "Python")
     # print(read_user(1))
     # create_meeting(1, 3, 4, "09:30")
     # print(read_meeting(1))
     # create_workshop(1, 3, "Python Data Structures")
-    print(read_workshop(1))
+    # print(read_workshop(1))
+    # print(read_users())
+    # pylint: disable=invalid-name
+    user_email_to_search = "Kyle"
+    user_id = find_user(user_email_to_search)
+
+    if user_id:
+        print(f"User ID for {user_email_to_search}: {user_id}")
+    else:
+        print(f"No user found with email: {user_email_to_search}")
