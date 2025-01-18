@@ -44,3 +44,4 @@ microblog.log*
 
 # Firebase Admin SDK
 skillsync-firebase-adminsdk.json
+credentials.json
