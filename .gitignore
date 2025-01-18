@@ -41,3 +41,6 @@ microblog.log*
 
 # Environment variables
 .env
+
+# Firebase Admin SDK
+skillsync-firebase-adminsdk.json
