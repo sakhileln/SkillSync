@@ -48,7 +48,7 @@ def find_user(username):
     for item in users:
         if not isinstance(item, dict):
             continue
-
+        # pylint: disable=unused-variable
         for user_id, user_info in item.items():
             if user_info == username:
                 return item["email"]  # Return the user's ID if found
