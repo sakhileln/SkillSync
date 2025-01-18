@@ -22,11 +22,13 @@ firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
 
+
 # pylint: disable=redefined-outer-name
 def create_user(user_id, name, email, role, expertise):
     """Create a new user."""
     user_data = {"name": name, "email": email, "role": role, "expertise": expertise}
     db.child("users").child(user_id).set(user_data)
+
 
 # pylint: disable=redefined-outer-name
 def read_user(user_id):
@@ -46,11 +48,12 @@ def find_user(username):
     for item in users:
         if not isinstance(item, dict):
             continue
-        
+
         for user_id, user_info in item.items():
             if user_info == username:
                 return item["email"]  # Return the user's ID if found
     return None  # Return None if no matching user is found
+
 
 # pylint: disable=redefined-outer-name
 def update_user(user_id, name=None, email=None, role=None, expertise=None):
@@ -66,6 +69,7 @@ def update_user(user_id, name=None, email=None, role=None, expertise=None):
         updates["expertise"] = expertise
 
     db.child("users").child(user_id).update(updates)
+
 
 # pylint: disable=redefined-outer-name
 def delete_user(user_id):
