@@ -46,10 +46,10 @@ def find_user(username):
     for item in users:
         if not isinstance(item, dict):
             continue
-        else:
-            for user_id, user_info in item.items():
-                if user_info == username:
-                    return item["email"]  # Return the user's ID if found
+        
+        for user_id, user_info in item.items():
+            if user_info == username:
+                return item["email"]  # Return the user's ID if found
     return None  # Return None if no matching user is found
 
 # pylint: disable=redefined-outer-name
