@@ -31,6 +31,7 @@ class BookingSystem:
             slot = self.available_slots[slot_number - 1]
             if slot not in self.bookings:
                 self.bookings[slot] = user_name
+                # pylint: disable=line-too-long
                 cprint(
                     f"Slot booked successfully for {user_name} at {slot.strftime('%Y-%m-%d %H:%M')}.",
                     "green",
