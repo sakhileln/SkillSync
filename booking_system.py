@@ -12,6 +12,7 @@ from termcolor import cprint
 
 class BookingSystem:
     """Simple booking system class."""
+
     def __init__(self):
         """Initialize available slots (1-hour slots)"""
         self.available_slots = self.generate_slots()
