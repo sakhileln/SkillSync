@@ -47,4 +47,39 @@ class BookingSystem:
         cprint("Current Bookings.", "green")
         for slot, user in self.bookings.items():
             cprint(f"{user} has booked {slot.strftime('%Y-%m-%d %H:%M')}.", "green")
-            
+
+def main():
+    system = BookingSystem()
+
+    while True:
+        cprint("\n--- Booking System ---", "blue")
+        cprint("1. View Available Slots", "blue")
+        cprint("2. Book a Slot", "blue")
+        cprint("3. View My Bookings", "blue")
+        cprint("4. Exit", "blue")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            system.display_available_slots()
+        elif choice == '2':
+            system.display_available_slots()
+            try:
+                slot_number = int(input("Enter the slot number to book: "))
+                user_name = input("Enter your name: ")
+                system.book_slot(slot_number, user_name)
+            except ValueError:
+                cprint("Please enter a valid number.", "red")
+
+        elif choice == '3':
+            system.view_bookings()
+
+        elif choice == '4':
+            cprint("Exiting the booking.", "green")
+            break
+        else:
+            cprint("Invalid choice. Please try again.", "red")
+
+
+if __name__ == "__main__":
+    main()
