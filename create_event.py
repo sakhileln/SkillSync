@@ -77,5 +77,5 @@ def create_event(email):
 
 
 if __name__ == "__main__":
-    # Accept email input from terminal
+    # Test with one email
     create_event("sakhilelindah@gmail.com")
