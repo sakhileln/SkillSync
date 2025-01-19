@@ -1,3 +1,10 @@
+"""
+This script provides functionality to authenticate with Google Calendar API 
+and create a calendar event via a terminal script. The event includes a description, 
+start/end times, and invites a specified attendee. Authentication is managed using 
+OAuth 2.0, with credentials stored for subsequent runs.
+"""
+
 import os
 import pickle
 
