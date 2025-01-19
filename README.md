@@ -63,6 +63,10 @@ Contributions are welcome! If you'd like to contribute. See the [CONTRIBUTING](C
 This project is licensed under the GNU GPL v3.0 License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
+- [Google Calendar API Python quickstart](https://developers.google.com/calendar/api/quickstart/python)
+- [Domain-wide delegation](https://developers.google.com/classroom/guides/key-concepts/domain-wide-delegation?hl=en)
+- [Invite users to an event](https://developers.google.com/calendar/api/concepts/inviting-attendees-to-events)
+- [Create events](https://developers.google.com/calendar/api/guides/create-events)
 
 ## Contact
 If you have any questions or suggestions, feel free to open an issue in this repository or contact us directly.

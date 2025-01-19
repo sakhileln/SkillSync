@@ -37,7 +37,11 @@ nosetests.xml
 
 venv
 app.db
-microblog.log*
 
 # Environment variables
 .env
+
+# Firebase Admin SDK
+skillsync-firebase-adminsdk.json
+credentials.json
+token.pickle
