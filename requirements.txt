@@ -41,7 +41,6 @@ requests-oauthlib==2.0.0
 requests-toolbelt==0.10.1
 rsa==4.9
 six==1.17.0
--e git+ssh://git@github.com/sakhileln/SkillSync.git@fcd92943e6c6fb3b128bb30713e2448aa0ce55a9#egg=skillsync
 SQLAlchemy==2.0.37
 termcolor==2.5.0
 typing_extensions==4.12.2
