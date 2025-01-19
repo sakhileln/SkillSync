@@ -1,9 +1,17 @@
+"""
+A simple booking system that allows users to view available 1-hour time slots, 
+book slots, and view their current bookings. Time slots are generated for the 
+current day between 09:00 and 17:00. The system prevents double-booking and 
+provides a user-friendly terminal interface.
+"""
+
 import datetime
 
 from termcolor import cprint
 
 
 class BookingSystem:
+    """Simple booking system class."""
     def __init__(self):
         """Initialize available slots (1-hour slots)"""
         self.available_slots = self.generate_slots()
@@ -54,6 +62,7 @@ class BookingSystem:
 
 
 def main():
+    """Main driver program to test BookingSystem class."""
     system = BookingSystem()
 
     while True:
