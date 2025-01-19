@@ -65,6 +65,7 @@ def create_event(email):
     }
 
     # Insert the event
+    # pylint: disable=no-member
     event = (
         service.events()
         .insert(calendarId="primary", body=event, sendUpdates="all")
