@@ -1,3 +1,8 @@
+"""
+Module that prints the start and name of the next 10 events on the user's calendar
+using Google Calendar API.
+"""
+
 import datetime
 import os.path
 
