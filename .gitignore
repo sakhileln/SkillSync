@@ -45,3 +45,4 @@ app.db
 skillsync-firebase-adminsdk.json
 credentials.json
 token.pickle
+token.json
