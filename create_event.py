@@ -80,25 +80,24 @@ def delete_event(event_id):
     """Delete a specific event by its Google Calendar event ID"""
     try:
         service = build("calendar", "v3", credentials=authenticate_google())
-        service.events().delete(calendarId='primary', eventId=event_id).execute()
+        service.events().delete(calendarId="primary", eventId=event_id).execute()
         cprint(f"Event {event_id} deleted successfully!", "green")
     except Exception as error:
         cprint(f"An error occurred: {error}", "red")
 
 
-def get_event_id(calendar_id='primary', event_summary=None):
+def get_event_id(calendar_id="primary", event_summary=None):
     """Retrieve event ID by summary or list all events"""
     service = build("calendar", "v3", credentials=authenticate_google())
     events_result = service.events().list(calendarId=calendar_id).execute()
-    events = events_result.get('items', [])
-    
+    events = events_result.get("items", [])
+
     if event_summary:
         for event in events:
-            if event['summary'] == event_summary:
-                return event['id']
-    
-    return events  # Return all events if no specific summary provided
+            if event["summary"] == event_summary:
+                return event["id"]
 
+    return events  # Return all events if no specific summary provided
 
 
 if __name__ == "__main__":
