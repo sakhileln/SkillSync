@@ -76,9 +76,15 @@ def create_event(email):
     )
 
 
-def delete_event(eventId) -> None:
-    service = build("calendar", "v3", credentials=authenticate_google())
-    service.events().delete(calendarId='primary', eventId=eventId).execute()
+def delete_event(event_id):
+    """Delete a specific event by its Google Calendar event ID"""
+    try:
+        service = build("calendar", "v3", credentials=authenticate_google())
+        service.events().delete(calendarId='primary', eventId=event_id).execute()
+        cprint(f"Event {event_id} deleted successfully!", "green")
+    except Exception as error:
+        cprint(f"An error occurred: {error}", "red")
+
 
 if __name__ == "__main__":
     # Test with one email
