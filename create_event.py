@@ -86,7 +86,23 @@ def delete_event(event_id):
         cprint(f"An error occurred: {error}", "red")
 
 
+def get_event_id(calendar_id='primary', event_summary=None):
+    """Retrieve event ID by summary or list all events"""
+    service = build("calendar", "v3", credentials=authenticate_google())
+    events_result = service.events().list(calendarId=calendar_id).execute()
+    events = events_result.get('items', [])
+    
+    if event_summary:
+        for event in events:
+            if event['summary'] == event_summary:
+                return event['id']
+    
+    return events  # Return all events if no specific summary provided
+
+
+
 if __name__ == "__main__":
     # Test with one email
     # create_event("sakhilelindah@gmail.com")
-    delete_event("Quick SkillSync Meeting")
+    # delete_event("Quick SkillSync Meeting")
+    print(get_event_id(event_summary="Quick SkillSync Meeting"))
