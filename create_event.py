@@ -76,6 +76,11 @@ def create_event(email):
     )
 
 
+def delete_event(eventId) -> None:
+    service = build("calendar", "v3", credentials=authenticate_google())
+    service.events().delete(calendarId='primary', eventId=eventId).execute()
+
 if __name__ == "__main__":
     # Test with one email
-    create_event("sakhilelindah@gmail.com")
+    # create_event("sakhilelindah@gmail.com")
+    delete_event("Quick SkillSync Meeting")
