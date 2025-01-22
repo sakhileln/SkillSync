@@ -10,6 +10,7 @@ import os
 import os.path
 import pickle
 
+# pylint: disable=ungrouped-imports
 from googleapiclient.discovery import build
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -122,6 +123,7 @@ def delete_event(event_id):
         service = build("calendar", "v3", credentials=authenticate_google())
         service.events().delete(calendarId="primary", eventId=event_id).execute()
         cprint(f"Event {event_id} deleted successfully!", "green")
+    # pylint: disable=broad-exception-caught
     except Exception as error:
         cprint(f"An error occurred: {error}", "red")
 
