@@ -91,6 +91,7 @@ def get_events():
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + "Z"  # 'Z' indicates UTC time
         print("Getting the upcoming 10 events")
+        # pylint: disable=no-member
         events_result = (
             service.events()
             .list(
@@ -121,6 +122,7 @@ def delete_event(event_id):
     """Delete a specific event by its Google Calendar event ID"""
     try:
         service = build("calendar", "v3", credentials=authenticate_google())
+        # pylint: disable=no-member
         service.events().delete(calendarId="primary", eventId=event_id).execute()
         cprint(f"Event {event_id} deleted successfully!", "green")
     # pylint: disable=broad-exception-caught
@@ -131,6 +133,7 @@ def delete_event(event_id):
 def get_event_id(calendar_id="primary", event_summary=None):
     """Retrieve event ID by summary or list all events"""
     service = build("calendar", "v3", credentials=authenticate_google())
+    # pylint: disable=no-member
     events_result = service.events().list(calendarId=calendar_id).execute()
     events = events_result.get("items", [])
 
