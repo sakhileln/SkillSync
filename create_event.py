@@ -84,6 +84,10 @@ def create_event(email):
 
 
 def get_events():
+    """
+    Module that prints the start and name of the next 10 events on the user's calendar
+    using Google Calendar API.
+    """
     try:
         service = build("calendar", "v3", credentials=authenticate_google())
 
