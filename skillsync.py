@@ -151,13 +151,14 @@ def view_bookings():
     read_workshop(1)
     read_meeting(1)
 
+
 @cli.command()
 @click.option(
     "--title",
     "-t",
     help="Name of meeting/booking you would like to cancel.",
     required=True,
-    prompt="Meeting Title"
+    prompt="Meeting Title",
 )
 def cancel_booking(title):
     """Allow users to cancel an existing booking."""
