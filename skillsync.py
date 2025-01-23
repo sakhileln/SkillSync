@@ -135,8 +135,8 @@ def request_meeting(mentor, time):
         ...
         # Booking system should handle the slots and times
         bookings()
-        #create_event(user_email)
-        #create_meeting(2, 2, 1, time)
+        create_event(user_email)
+        create_meeting(2, 2, 1, time)
         # User the email and time to create the meeting on the database
 
     cprint(f"Meeting request sent to mentor: {mentor} for {time}", "green")
