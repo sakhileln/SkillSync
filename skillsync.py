@@ -4,7 +4,7 @@ import click
 from termcolor import cprint
 
 from booking_system import bookings
-from crud import read_workshop, find_user, create_user, create_meeting
+from crud import read_workshop, read_meeting, find_user, create_user, create_meeting
 from events import get_events, create_event
 from helper import (
     print_workshops,
@@ -146,6 +146,8 @@ def request_meeting(mentor, time):
 @cli.command()
 def view_bookings():
     """Display a list of all confirmed bookings."""
+    read_workshop(1)
+    read_meeting(1)
 
 
 def cancel_booking():
