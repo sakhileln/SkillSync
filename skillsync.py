@@ -1,5 +1,7 @@
 """MAin driver module for the program."""
 
+import os
+
 import click
 from termcolor import cprint
 
@@ -168,10 +170,12 @@ def cancel_booking(title):
 @cli.command()
 def logout():
     """Log out of your account."""
-    if "user" in session:
-        session.pop("user")
+    if os.path.exists("token.pickle"):
+        os.remove("token.pickle")
+        cprint("Logged out successfully", "green")
         click.echo("Logged out successfully.")
     else:
+        cprint("You are not logged in.", "red")
         click.echo("You are not logged in.")
 
 
