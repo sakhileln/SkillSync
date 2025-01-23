@@ -1,9 +1,13 @@
 """MAin driver module for the program."""
 
+import os
+
 import click
 from termcolor import cprint
 
-from crud import read_workshop, find_user
+from booking_system import bookings
+from crud import read_workshop, read_meeting, find_user, create_user, create_meeting
+from events import get_events, create_event, get_event_id, delete_event
 from helper import (
     print_workshops,
     sign_in_with_email_and_password,
@@ -89,6 +93,7 @@ def sign_up(email, password):
     if "error" in response:
         cprint("Sign up failed.", "red")
     else:
+        create_user(2, "Kyle", email, "Mentor", "DevOps")
         cprint("Sign up successful. Cool beans!!!", "green")
     print(f"{email}, {password}")
 
@@ -99,6 +104,7 @@ def view_workshops():
     """List upcoming workshops and mentors available for booking."""
     click.echo("Lissing upcoming workshops: ")
     workshops = read_workshop(1)
+    get_events()
     click.echo(print_workshops(workshops))
 
 
@@ -113,7 +119,7 @@ def view_workshops():
 )
 @click.option(
     "--time",
-    "-m",
+    "-t",
     prompt="Time",
     required=True,
     help="Time of the meeting.",
@@ -129,7 +135,12 @@ def request_meeting(mentor, time):
         cprint("Could not find mentor or mentee. Please try again.", "red")
     else:
         ...
+        # Booking system should handle the slots and times
+        bookings()
+        create_event(user_email)
+        create_meeting(2, 2, 1, time)
         # User the email and time to create the meeting on the database
+
     cprint(f"Meeting request sent to mentor: {mentor} for {time}", "green")
     # click.echo(f"Meeting request sent to mentor: {mentor} at {time}")
 
@@ -137,19 +148,36 @@ def request_meeting(mentor, time):
 @cli.command()
 def view_bookings():
     """Display a list of all confirmed bookings."""
+    read_workshop(1)
+    read_meeting(1)
 
 
-def cancel_booking():
+@cli.command()
+@click.option(
+    "--title",
+    "-t",
+    help="Name of meeting/booking you would like to cancel.",
+    required=True,
+    prompt="Meeting Title",
+)
+def cancel_booking(title):
     """Allow users to cancel an existing booking."""
+    # pylint: disable=invalid-name
+    meeting_eventId = get_event_id(title)
+    # Handle unexpected output
+    delete_event(meeting_eventId)
+    # Must be used when successfully retrieved meeting_eventID
 
 
 @cli.command()
 def logout():
     """Log out of your account."""
-    if "user" in session:
-        session.pop("user")
+    if os.path.exists("token.pickle"):
+        os.remove("token.pickle")
+        cprint("Logged out successfully", "green")
         click.echo("Logged out successfully.")
     else:
+        cprint("You are not logged in.", "red")
         click.echo("You are not logged in.")
 
 

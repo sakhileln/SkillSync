@@ -10,14 +10,11 @@ import os
 import os.path
 import pickle
 
+# pylint: disable=ungrouped-imports
 from googleapiclient.discovery import build
 from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
 from termcolor import cprint
 
 
@@ -84,12 +81,17 @@ def create_event(email):
 
 
 def get_events():
+    """
+    Module that prints the start and name of the next 10 events on the user's calendar
+    using Google Calendar API.
+    """
     try:
         service = build("calendar", "v3", credentials=authenticate_google())
 
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + "Z"  # 'Z' indicates UTC time
         print("Getting the upcoming 10 events")
+        # pylint: disable=no-member
         events_result = (
             service.events()
             .list(
@@ -120,8 +122,10 @@ def delete_event(event_id):
     """Delete a specific event by its Google Calendar event ID"""
     try:
         service = build("calendar", "v3", credentials=authenticate_google())
+        # pylint: disable=no-member
         service.events().delete(calendarId="primary", eventId=event_id).execute()
         cprint(f"Event {event_id} deleted successfully!", "green")
+    # pylint: disable=broad-exception-caught
     except Exception as error:
         cprint(f"An error occurred: {error}", "red")
 
@@ -129,6 +133,7 @@ def delete_event(event_id):
 def get_event_id(calendar_id="primary", event_summary=None):
     """Retrieve event ID by summary or list all events"""
     service = build("calendar", "v3", credentials=authenticate_google())
+    # pylint: disable=no-member
     events_result = service.events().list(calendarId=calendar_id).execute()
     events = events_result.get("items", [])
 

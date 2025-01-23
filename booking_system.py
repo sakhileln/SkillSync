@@ -62,7 +62,7 @@ class BookingSystem:
             cprint(f"{user} has booked {slot.strftime('%Y-%m-%d %H:%M')}.", "green")
 
 
-def main():
+def bookings():
     """Main driver program to test BookingSystem class."""
     system = BookingSystem()
 
@@ -97,4 +97,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    bookings()
