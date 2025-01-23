@@ -3,7 +3,8 @@
 import click
 from termcolor import cprint
 
-from crud import read_workshop, find_user
+from crud import read_workshop, find_user, create_user
+from events import get_events
 from helper import (
     print_workshops,
     sign_in_with_email_and_password,
@@ -89,6 +90,7 @@ def sign_up(email, password):
     if "error" in response:
         cprint("Sign up failed.", "red")
     else:
+        create_user(2, "Kyle", email, "Mentor", "DevOps")
         cprint("Sign up successful. Cool beans!!!", "green")
     print(f"{email}, {password}")
 
@@ -99,6 +101,7 @@ def view_workshops():
     """List upcoming workshops and mentors available for booking."""
     click.echo("Lissing upcoming workshops: ")
     workshops = read_workshop(1)
+    get_events()
     click.echo(print_workshops(workshops))
 
 
