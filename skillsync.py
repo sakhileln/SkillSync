@@ -5,7 +5,7 @@ from termcolor import cprint
 
 from booking_system import bookings
 from crud import read_workshop, read_meeting, find_user, create_user, create_meeting
-from events import get_events, create_event
+from events import get_events, create_event, get_event_id, delete_event
 from helper import (
     print_workshops,
     sign_in_with_email_and_password,
@@ -149,9 +149,20 @@ def view_bookings():
     read_workshop(1)
     read_meeting(1)
 
-
-def cancel_booking():
+@cli.command()
+@click.option(
+    "--title",
+    "-t",
+    help="Name of meeting/booking you would like to cancel.",
+    required=True,
+    prompt="Meeting Title"
+)
+def cancel_booking(title):
     """Allow users to cancel an existing booking."""
+    meeting_eventId = get_event_id(title)
+    # Handle unexpected output
+    delete_event(meeting_eventId)
+    # Must be used when successfully retrieved meeting_eventID
 
 
 @cli.command()
