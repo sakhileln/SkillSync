@@ -3,8 +3,9 @@
 import click
 from termcolor import cprint
 
-from crud import read_workshop, find_user, create_user
-from events import get_events
+from booking_system import bookings
+from crud import read_workshop, find_user, create_user, create_meeting
+from events import get_events, create_event
 from helper import (
     print_workshops,
     sign_in_with_email_and_password,
@@ -116,7 +117,7 @@ def view_workshops():
 )
 @click.option(
     "--time",
-    "-m",
+    "-t",
     prompt="Time",
     required=True,
     help="Time of the meeting.",
@@ -132,7 +133,12 @@ def request_meeting(mentor, time):
         cprint("Could not find mentor or mentee. Please try again.", "red")
     else:
         ...
+        # Booking system should handle the slots and times
+        bookings()
+        #create_event(user_email)
+        #create_meeting(2, 2, 1, time)
         # User the email and time to create the meeting on the database
+
     cprint(f"Meeting request sent to mentor: {mentor} for {time}", "green")
     # click.echo(f"Meeting request sent to mentor: {mentor} at {time}")
 
