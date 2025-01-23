@@ -162,6 +162,7 @@ def view_bookings():
 )
 def cancel_booking(title):
     """Allow users to cancel an existing booking."""
+    # pylint: disable=invalid-name
     meeting_eventId = get_event_id(title)
     # Handle unexpected output
     delete_event(meeting_eventId)
