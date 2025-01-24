@@ -77,6 +77,8 @@ This project is licensed under the GNU GPL v3.0 License. See the [LICENSE](LICEN
 - [Python Pickle Tutorial](https://www.datacamp.com/tutorial/pickle-python-tutorial)
 - [Events](https://developers.google.com/calendar/api/v3/reference/events/delete#python)
 - [Google Calendar API Docs](https://www.postman.com/postman/google-api-workspace/documentation/54xuf9z/google-calendar-api)
+- [Firebase Authentication](https://firebase.google.com/docs/auth)
+- [Firebase Build Projects](https://firebase.google.com/docs/build)
 
 ## Contact
 If you have any questions or suggestions, feel free to open an issue in this repository or contact us directly.
