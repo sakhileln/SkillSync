@@ -50,7 +50,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      releases: write
     needs: [lint]
     steps:
       - uses: actions/checkout@v4
