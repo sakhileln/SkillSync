@@ -79,6 +79,7 @@ This project is licensed under the GNU GPL v3.0 License. See the [LICENSE](LICEN
 - [Google Calendar API Docs](https://www.postman.com/postman/google-api-workspace/documentation/54xuf9z/google-calendar-api)
 - [Firebase Authentication](https://firebase.google.com/docs/auth)
 - [Firebase Build Projects](https://firebase.google.com/docs/build)
+- [Firebase Realtime Database](https://firebase.google.com/docs/database)
 
 ## Contact
 If you have any questions or suggestions, feel free to open an issue in this repository or contact us directly.
