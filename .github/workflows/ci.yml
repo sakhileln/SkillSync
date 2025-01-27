@@ -67,11 +67,11 @@ jobs:
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_NAME: "v${GITHUB_REF_NAME}"
+          RELEASE_NAME: "v${{ github.ref_name }}"
         run: |
           gh release create "${RELEASE_NAME}" \
             --repo="$GITHUB_REPOSITORY" \
             --title="${RELEASE_NAME}" \
             --generate-notes
           # Upload asset
-          gh release upload "${RELEASE_NAME}" --repo="$GITHUB_REPOSITORY" --clobber dist/skillsync/skillsync
+          gh release upload "${RELEASE_NAME}" --repo="$GITHUB_REPOSITORY" --clobber dist/skillsync
