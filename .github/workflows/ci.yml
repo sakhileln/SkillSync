@@ -53,7 +53,6 @@ jobs:
     needs: [lint]
     permissions:
       contents: write
-      releases: write
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
