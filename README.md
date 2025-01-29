@@ -51,6 +51,7 @@ Before you begin, ensure you have the following installed on your system:
     python3 skillsync.py cancel-booking -h
     ```
 - **Follow the command line prompts**
+- You can also check out the **Releases section**.
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute. See the [CONTRIBUTING](CONTRIBUTING.md) file for details.
