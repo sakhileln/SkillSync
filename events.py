@@ -146,7 +146,6 @@ def get_event_id(calendar_id="primary", event_summary=None):
 
 
 if __name__ == "__main__":
-    # Test with one email
     # create_event("sakhilelindah@gmail.com")
     # delete_event("Quick SkillSync Meeting")
     # print(get_event_id(event_summary="Quick SkillSync Meeting"))
