@@ -97,4 +97,5 @@ def bookings():
 
 
 if __name__ == "__main__":
+    # Test booking system.
     bookings()
