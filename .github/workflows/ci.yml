@@ -68,12 +68,12 @@ jobs:
         run: |
           pyinstaller --onefile skillsync.py
       - name: Create release
-          env:
-            GITHUB_TOKEN: ${{ github.token }}
-            RELEASE_TAG: ${{ github.ref_name }}  # Get actual pushed tag
-            RELEASE_NAME: "skillsync_${{ github.ref_name }}"
-          run: |
-            gh release create "$RELEASE_TAG" \
-              --title "$RELEASE_NAME" \
-              --generate-notes
-            gh release upload "$RELEASE_TAG" dist/skillsync
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}  # Get actual pushed tag
+          RELEASE_NAME: "skillsync_${{ github.ref_name }}"
+        run: |
+          gh release create "$RELEASE_TAG" \
+            --title "$RELEASE_NAME" \
+            --generate-notes
+          gh release upload "$RELEASE_TAG" dist/skillsync
