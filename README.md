@@ -81,6 +81,7 @@ This project is licensed under the GNU GPL v3.0 License. See the [LICENSE](LICEN
 - [Firebase Authentication](https://firebase.google.com/docs/auth)
 - [Firebase Build Projects](https://firebase.google.com/docs/build)
 - [Firebase Realtime Database](https://firebase.google.com/docs/database)
+- [Push Notifications](https://developers.google.com/calendar/api/guides/push)
 
 ## Contact
 If you have any questions or suggestions, feel free to open an issue in this repository or contact us directly.
