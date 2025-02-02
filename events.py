@@ -45,15 +45,15 @@ def create_event(email):
 
     # Define event details
     event = {
-        "summary": "Quick SkillSync Meeting",
+        "summary": "Demo Day",
         "location": "Virtual",
-        "description": "Sync-up meeting to discuss progress.",
+        "description": "Final Demo For SkillSync Project.",
         "start": {
-            "dateTime": "2025-01-22T10:00:00+02:00",  # SA time offset
+            "dateTime": "2025-02-07T11:00:00+02:00",  # SA time offset
             "timeZone": "Africa/Johannesburg",
         },
         "end": {
-            "dateTime": "2025-01-22T11:00:00+02:00",  # Duration: 1 hour
+            "dateTime": "2025-02-07T12:00:00+02:00",  # Duration: 1 hour
             "timeZone": "Africa/Johannesburg",
         },
         "attendees": [
@@ -72,7 +72,7 @@ def create_event(email):
     # pylint: disable=no-member
     event = (
         service.events()
-        .insert(calendarId="primary", body=event, sendUpdates="all")
+        .insert(calendarId="primary", body=event, sendUpdates="all", sendNotifications=True)
         .execute()
     )
     cprint(
@@ -97,7 +97,7 @@ def get_events():
             .list(
                 calendarId="primary",
                 timeMin=now,
-                maxResults=10,
+                maxResults=3,
                 singleEvents=True,
                 orderBy="startTime",
             )
