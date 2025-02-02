@@ -83,6 +83,7 @@ This project is licensed under the GNU GPL v3.0 License. See the [LICENSE](LICEN
 - [Firebase Realtime Database](https://firebase.google.com/docs/database)
 - [Reminders & notifications](https://developers.google.com/calendar/api/concepts/reminders)
 - [Sending Emails With Python](https://realpython.com/python-send-email/)
+- [smtplib — SMTP protocol client](https://docs.python.org/3/library/smtplib.html)
 
 ## Contact
 If you have any questions or suggestions, feel free to open an issue in this repository or contact us directly.
