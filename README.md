@@ -44,7 +44,7 @@ Before you begin, ensure you have the following installed on your system:
     python3 skillsync.py
     ```
 - Get help for how to run the program
-    ```bash
+    ```shell
     python3 skillsync.py -h
     python3 skillsync.py view-bookings -h
     python3 skillsync.py login -h
