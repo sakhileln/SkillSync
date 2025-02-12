@@ -66,7 +66,6 @@ Contributions are welcome! If you'd like to contribute. See the [CONTRIBUTING](C
 ## License
 This project is licensed under the GNU GPL v3.0 License. See the [LICENSE](LICENSE) file for details.
 
-
 ## Acknowledgments
 - [Datetime](https://docs.python.org/3/library/datetime.html)
 - [Pickle](https://docs.python.org/3/library/pickle.html)
@@ -89,4 +88,3 @@ If you have any questions or suggestions, feel free to open an issue in this rep
 - Sakhile III  
 - [LinkedIn Profile](https://www.linkedin.com/in/sakhile-ndlazi)
 - [GitHub Profile](https://github.com/sakhileln)
-
