@@ -2,6 +2,7 @@
 
 from helper import sign_in, sign_up
 
+
 print("SkillSync")
 choice = input("Do you have an account [Y/n]: ")
 while choice not in ["", " ", "y", "Y", "n", "N"]:
