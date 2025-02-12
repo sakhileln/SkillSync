@@ -14,7 +14,6 @@ from helper import (
     sign_up_with_email_and_password,
 )
 
-
 # Simulate in-memory session storage
 session = {}
 
@@ -37,7 +36,6 @@ def login_required(func):
 def cli():
     """A Python-based Command-Line Interface (CLI) application for managing workshop bookings
     and one-on-one meetings."""
-
 
 @cli.command()
 @click.option(
