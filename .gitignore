@@ -46,3 +46,6 @@ skillsync-firebase-adminsdk.json
 credentials.json
 token.pickle
 token.json
+
+# Pycharm Files
+.idea/
