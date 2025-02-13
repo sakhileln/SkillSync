@@ -28,6 +28,7 @@ jobs:
       - name: Check code formatting with black
         run: |
           # black --check --diff .
+          black --version
 
   lint:
     runs-on: ubuntu-latest
