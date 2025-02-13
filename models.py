@@ -14,6 +14,7 @@ Base = declarative_base()  # Base class for declarative models
 # pylint: disable=too-few-public-methods
 class User(Base):
     """User model."""
+
     __tablename__ = "users"
 
     user_id = Column(Integer, primary_key=True)
