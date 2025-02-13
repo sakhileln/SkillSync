@@ -1,7 +1,0 @@
-print("Nkos yam")
-
-
-
-
-
-
