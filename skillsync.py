@@ -37,6 +37,7 @@ def cli():
     """A Python-based Command-Line Interface (CLI) application for managing workshop bookings
     and one-on-one meetings."""
 
+
 @cli.command()
 @click.option(
     "--email",
