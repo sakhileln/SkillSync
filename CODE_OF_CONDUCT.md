@@ -10,7 +10,6 @@ level of experience, education, socio-economic status, nationality, personal
 appearance, race, religion, or sexual identity and orientation.
 
 ## Our Standards
-
 Examples of behavior that contributes to creating a positive environment
 include:
 
@@ -32,7 +31,6 @@ Examples of unacceptable behavior by participants include:
  professional setting
 
 ## Our Responsibilities
-
 Project maintainers are responsible for clarifying the standards of acceptable
 behavior and are expected to take appropriate and fair corrective action in
 response to any instances of unacceptable behavior.
