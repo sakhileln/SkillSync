@@ -29,7 +29,6 @@ Before [creating an issue](https://help.github.com/en/github/managing-your-work-
 Review our [Security Policy](https://github.com/space-nomad/.github/blob/main/SECURITY.md). **Do not** file a public issue for security vulnerabilities.
 
 ### :beetle: Bug Reports and Other Issues
-
 A great way to contribute to the project is to send a detailed issue when you encounter a problem. We always appreciate a well-written, thorough bug report. :v:
 
 In short, since you are most likely a developer, **provide a ticket that you would like to receive**.
@@ -57,7 +56,6 @@ Feature requests are welcome! While we will consider all requests, we cannot gua
 You can triage issues which may include reproducing bug reports or asking for additional information, such as version numbers or reproduction instructions. Any help you can provide to quickly resolve an issue is very much appreciated!
 
 ## :repeat: Submitting Pull Requests
-
 We **love** pull requests! Before [forking the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests) for non-trivial changes, it is usually best to first open an issue to discuss the changes, or discuss your intended approach for solving the problem in the comments for an existing issue.
 
 For most contributions, after your first pull request is accepted and merged, you will be [invited to the project](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository) and given **push access**. :tada:
