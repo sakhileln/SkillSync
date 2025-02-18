@@ -137,7 +137,6 @@ See also: #456, #789
 ```
 
 ## :white_check_mark: Code Review
-
 - **Review the code, not the author.** Look for and suggest improvements without disparaging or insulting the author. Provide actionable feedback and explain your reasoning.
 
 - **You are not your code.** When your code is critiqued, questioned, or constructively criticized, remember that you are not your code. Do not take code review personally.
@@ -154,6 +153,7 @@ For example, if all private properties are prefixed with an underscore `_`, then
 When possible, style and format will be enforced with a linter.
 
 ## :medal_sports: Certificate of Origin
+
 *Developer's Certificate of Origin 1.1*
 
 By making a contribution to this project, I certify that:
