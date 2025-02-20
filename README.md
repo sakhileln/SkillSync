@@ -67,6 +67,7 @@ Contributions are welcome! If you'd like to contribute. See the [CONTRIBUTING](C
 This project is licensed under the GNU GPL v3.0 License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
+
 - [Datetime](https://docs.python.org/3/library/datetime.html)
 - [Pickle](https://docs.python.org/3/library/pickle.html)
 - [Google Calendar API Python quickstart](https://developers.google.com/calendar/api/quickstart/python)
