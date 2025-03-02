@@ -89,7 +89,6 @@ For most contributions, after your first pull request is accepted and merged, yo
 - Use spaces, not tabs.
 
 ## :memo: Writing Commit Messages
-
 Please [write a great commit message](https://chris.beams.io/posts/git-commit/).
 
 1. Separate subject from body with a blank line
@@ -151,7 +150,6 @@ For example, if all private properties are prefixed with an underscore `_`, then
 When possible, style and format will be enforced with a linter.
 
 ## :medal_sports: Certificate of Origin
-
 *Developer's Certificate of Origin 1.1*
 
 By making a contribution to this project, I certify that:
